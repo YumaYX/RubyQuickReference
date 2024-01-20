@@ -1,0 +1,7 @@
+title: Ruby Quick Reference
+description: A concise guide summarizing the fundamental features of Ruby in an accessible format
+theme: jekyll-theme-cayman
+exclude:
+  - codes
+  - app.sh
+  - makefile
