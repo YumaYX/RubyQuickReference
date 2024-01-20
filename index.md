@@ -28,6 +28,19 @@ p Date::DAYNAMES
 ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 ```
 
+## date_dow.rb
+
+```ruby
+require 'date'
+p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
+```
+
+### Result
+
+```
+["日", "月", "火", "水", "木", "金", "土"]
+```
+
 ## date_monthnames.rb
 
 ```ruby
@@ -40,19 +53,6 @@ p Date::MONTHNAMES
 
 ```
 [nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-```
-
-## date_wof.rb
-
-```ruby
-require 'date'
-p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
-```
-
-### Result
-
-```
-["日", "月", "火", "水", "木", "金", "土"]
 ```
 
 ## file_to_array.rb
@@ -129,8 +129,8 @@ logger.debug("Created logger") # none
 
 ```
 Level INFO
-W, [2024-01-20T13:30:19.568595 #27574]  WARN -- : Nothing to do!
-I, [2024-01-20T13:30:19.568748 #27574]  INFO -- : Program started
+W, [2024-01-20T13:33:15.996007 #28049]  WARN -- : Nothing to do!
+I, [2024-01-20T13:33:15.996145 #28049]  INFO -- : Program started
 ```
 
 ## logger_warn.rb
@@ -154,7 +154,7 @@ logger.debug("Created logger") # none
 
 ```
 Level WARN
-W, [2024-01-20T13:30:19.730060 #27591]  WARN -- : Nothing to do!
+W, [2024-01-20T13:33:16.149103 #28066]  WARN -- : Nothing to do!
 ```
 
 ## main_block.rb
