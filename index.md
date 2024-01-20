@@ -76,6 +76,42 @@ hash = Hash.new(0)
 hash['key'] += 1
 ```
 
+## logger.rb
+
+```ruby
+require 'logger'
+
+logger = Logger.new(STDOUT)
+
+puts "Level WARN"
+logger.level = Logger::WARN # <= change level
+
+logger.warn("Nothing to do!") # output
+logger.info("Program started") # none
+logger.debug("Created logger") # none
+
+
+puts "Level INFO"
+logger.level = Logger::INFO # <= change level
+
+logger.warn("Nothing to do!") # output
+logger.info("Program started") # output
+logger.debug("Created logger") # none
+
+
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+```
+
+### Result
+
+```
+Level WARN
+W, [2024-01-20T13:11:10.084339 #24942]  WARN -- : Nothing to do!
+Level INFO
+W, [2024-01-20T13:11:10.084584 #24942]  WARN -- : Nothing to do!
+I, [2024-01-20T13:11:10.084595 #24942]  INFO -- : Program started
+```
+
 ## main_block.rb
 
 ```ruby
