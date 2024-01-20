@@ -7,9 +7,14 @@ echo
 
 ls -1 *.rb | while read line
 do
-  cat <<RUBYSCRIPTEOF
+  echo "## $(basename ${line})"
 
-## $(basename ${line})
+  if [ -f "${line%.*}.md" ]; then
+    echo
+    cat ${line%.*}.md
+  fi
+
+  cat <<RUBYSCRIPTEOF
 
 \`\`\`ruby
 $(cat ${line})

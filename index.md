@@ -1,6 +1,5 @@
 # Ruby Quick Reference
 
-
 ## date.rb
 
 ```ruby
@@ -10,11 +9,10 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 20:36:32.675505 +0900
+#=> 2024-01-20 21:11:28.980785 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
-
 ## date_daynames.rb
 
 ```ruby
@@ -35,7 +33,6 @@ Date::DAYNAMES
  "Friday",
  "Saturday"]
 ```
-
 ## date_dow.rb
 
 ```ruby
@@ -48,7 +45,6 @@ DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ["日",
 ...
 ```
-
 ## date_monthnames.rb
 
 ```ruby
@@ -75,8 +71,9 @@ Date::MONTHNAMES
  "November",
  "December"]
 ```
-
 ## file_to_array.rb
+
+It reads the file, creates an array of lines, and then removes the newline character from each line in the array.
 
 ```ruby
 File.readlines('file.txt').map(&:chomp)
@@ -89,7 +86,6 @@ File.readlines('file.txt').map(&:chomp)
  "line2",
  "line3"]
 ```
-
 ## heredoc.rb
 
 ```ruby
@@ -104,7 +100,6 @@ doc = <<~'EOL'
 '> EOL
 #=> "string\n"
 ```
-
 ## heredoc_with_value.rb
 
 ```ruby
@@ -122,7 +117,6 @@ doc = <<~EOL
 "> EOL
 #=> "ruby\n"
 ```
-
 ## init_empty_hash.rb
 
 ```ruby
@@ -136,12 +130,13 @@ hash = Hash.new(0)
 hash['key'] += 1
 #=> 1
 ```
-
 ## logger_info.rb
 
-```ruby
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
+Ref.
 
+- <https://docs.ruby-lang.org/ja/latest/library/logger.html>
+
+```ruby
 require 'logger'
 
 logger = Logger.new(STDOUT)
@@ -155,15 +150,12 @@ logger.debug("Created logger") # none
 ```
 
 ```
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
-#=> nil
-
 require 'logger'
 #=> true
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001054cac10
+#<Logger:0x0000000106153d38
 ...
 
 puts "Level INFO"
@@ -173,20 +165,21 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:36:36.408947 #53756]  WARN -- : Nothing to do!
+W, [2024-01-20T21:11:32.831553 #63473]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T20:36:36.409382 #53756]  INFO -- : Program started
+I, [2024-01-20T21:11:32.831983 #63473]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
 ```
-
 ## logger_warn.rb
 
-```ruby
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
+Ref.
 
+- <https://docs.ruby-lang.org/ja/latest/library/logger.html>
+
+```ruby
 require 'logger'
 
 logger = Logger.new(STDOUT)
@@ -200,15 +193,12 @@ logger.debug("Created logger") # none
 ```
 
 ```
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
-#=> nil
-
 require 'logger'
 #=> true
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000101bd01f8
+#<Logger:0x0000000106d62408
 ...
 
 puts "Level WARN"
@@ -218,14 +208,13 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:36:36.881793 #53777]  WARN -- : Nothing to do!
+W, [2024-01-20T21:11:33.473570 #63495]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
 logger.debug("Created logger") # none
 #=> true
 ```
-
 ## main_block.rb
 
 ```ruby
@@ -244,7 +233,6 @@ if __FILE__ == $0
 ?>   end
 #=> nil
 ```
-
 ## path_dir.rb
 
 ```ruby
@@ -255,7 +243,6 @@ __dir__
 __dir__
 #=> "."
 ```
-
 ## path_file.rb
 
 ```ruby
@@ -266,7 +253,6 @@ __FILE__
 __FILE__
 #=> "path_file.rb"
 ```
-
 ## read_csv_new.rb
 
 ```ruby
@@ -307,7 +293,6 @@ File.open("file.csv", "r") do |f|
 
 #=> nil
 ```
-
 ## read_csv_read.rb
 
 ```ruby
@@ -357,7 +342,6 @@ key1,value1
 key2,value2
 key3,value3
 ```
-
 ## read_erb.rb
 
 ```ruby
@@ -375,7 +359,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000102bb1810
+#<ERB:0x0000000108d81860
 ...
 @val = 'val'
 #=> "val"
@@ -383,7 +367,6 @@ erb = ERB.new(File.read('file.html.erb'))
 erb.result(binding)
 #=> "<h1>header</h1>\n\n<p>val</p>\n"
 ```
-
 ## read_erb_file_direct.rb
 
 ```ruby
@@ -399,7 +382,6 @@ require 'erb'
 ERB.new(File.read('file.html.erb')).result(binding)
 #=> "<h1>header</h1>\n\n<p></p>\n"
 ```
-
 ## read_file.rb
 
 ```ruby
@@ -410,7 +392,6 @@ File.read('filewr.txt')
 File.read('filewr.txt')
 #=> "Hello"
 ```
-
 ## read_json_load.rb
 
 ```ruby
@@ -426,7 +407,6 @@ JSON.load(File.read('file.json'))
 {"key"=>
   "value"}
 ```
-
 ## read_json_open.rb
 
 ```ruby
@@ -442,7 +422,6 @@ File.open('file.json') {|j| JSON.load(j)}
 {"key"=>
   "value"}
 ```
-
 ## stdin.rb
 
 ```ruby
@@ -453,7 +432,6 @@ File.open('file.json') {|j| JSON.load(j)}
 # $stdin.read
 #=> nil
 ```
-
 ## write_file.rb
 
 ```ruby
@@ -464,7 +442,6 @@ File.write('filewr.txt', 'Hello')
 File.write('filewr.txt', 'Hello')
 #=> 5
 ```
-
 ## write_json_open.rb
 
 ```ruby
@@ -487,7 +464,6 @@ hash = {:key => 'value'}
 File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 #=> #<File:file.json (closed)>
 ```
-
 ## write_json_write.rb
 
 ```ruby

@@ -1,5 +1,5 @@
 default:
-	sh app.sh | tee index.md
+	sh app.sh > index.md
 	ln -fnsv index.md README.md
 
 pub: check default

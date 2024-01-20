@@ -1,5 +1,3 @@
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
-
 require 'logger'
 
 logger = Logger.new(STDOUT)
