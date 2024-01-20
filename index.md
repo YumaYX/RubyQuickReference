@@ -5,66 +5,102 @@
 
 ```ruby
 t = Time.now
-p t.strftime("%F")
+t.strftime("%F")
 ```
 
 ### Result
 
 ```
-"2024-01-20"
+t = Time.now
+#=> 2024-01-20 19:36:46.50398 +0900
+t.strftime("%F")
+#=> "2024-01-20"
 ```
 
 ## date_daynames.rb
 
 ```ruby
 require 'date'
-
-p Date::DAYNAMES
+Date::DAYNAMES
 ```
 
 ### Result
 
 ```
-["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+require 'date'
+#=> true
+Date::DAYNAMES
+#=> 
+["Sunday",
+ "Monday",
+ "Tuesday",
+ "Wednesday",
+ "Thursday",
+ "Friday",
+ "Saturday"]
 ```
 
 ## date_dow.rb
 
 ```ruby
 require 'date'
-p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
+DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ```
 
 ### Result
 
 ```
-["日", "月", "火", "水", "木", "金", "土"]
+require 'date'
+#=> true
+DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
+#=> 
+["日",
+...
 ```
 
 ## date_monthnames.rb
 
 ```ruby
 require 'date'
-
-p Date::MONTHNAMES
+Date::MONTHNAMES
 ```
 
 ### Result
 
 ```
-[nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+require 'date'
+#=> true
+Date::MONTHNAMES
+#=> 
+[nil,
+ "January",
+ "February",
+ "March",
+ "April",
+ "May",
+ "June",
+ "July",
+ "August",
+ "September",
+ "October",
+ "November",
+ "December"]
 ```
 
 ## file_to_array.rb
 
 ```ruby
-p File.readlines('file.txt').map(&:chomp)
+File.readlines('file.txt').map(&:chomp)
 ```
 
 ### Result
 
 ```
-["line1", "line2", "line3"]
+File.readlines('file.txt').map(&:chomp)
+#=> 
+["line1",
+ "line2",
+ "line3"]
 ```
 
 ## heredoc.rb
@@ -73,14 +109,15 @@ p File.readlines('file.txt').map(&:chomp)
 doc = <<~'EOL'
   string
 EOL
-
-p doc
 ```
 
 ### Result
 
 ```
-"string\n"
+doc = <<~'EOL'
+'>   string
+'> EOL
+#=> "string\n"
 ```
 
 ## heredoc_with_value.rb
@@ -90,14 +127,17 @@ value = 'ruby'
 doc = <<~EOL
   #{value}
 EOL
-
-p doc
 ```
 
 ### Result
 
 ```
-"ruby\n"
+value = 'ruby'
+#=> "ruby"
+doc = <<~EOL
+">   #{value}
+"> EOL
+#=> "ruby\n"
 ```
 
 ## init_empty_hash.rb
@@ -107,9 +147,20 @@ hash = Hash.new(0)
 hash['key'] += 1
 ```
 
+### Result
+
+```
+hash = Hash.new(0)
+#=> {}
+hash['key'] += 1
+#=> 1
+```
+
 ## logger_info.rb
 
 ```ruby
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+
 require 'logger'
 
 logger = Logger.new(STDOUT)
@@ -120,22 +171,43 @@ logger.level = Logger::INFO # <= change level
 logger.warn("Nothing to do!") # output
 logger.info("Program started") # output
 logger.debug("Created logger") # none
-
-
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
 ```
 
 ### Result
 
 ```
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+#=> nil
+
+require 'logger'
+#=> true
+
+logger = Logger.new(STDOUT)
+#=> 
+#<Logger:0x000000010f3ee0a8
+...
+
+puts "Level INFO"
 Level INFO
-W, [2024-01-20T13:33:15.996007 #28049]  WARN -- : Nothing to do!
-I, [2024-01-20T13:33:15.996145 #28049]  INFO -- : Program started
+#=> nil
+logger.level = Logger::INFO # <= change level
+#=> 1
+
+logger.warn("Nothing to do!") # output
+W, [2024-01-20T19:36:50.521551 #42234]  WARN -- : Nothing to do!
+#=> true
+logger.info("Program started") # output
+I, [2024-01-20T19:36:50.522223 #42234]  INFO -- : Program started
+#=> true
+logger.debug("Created logger") # none
+#=> true
 ```
 
 ## logger_warn.rb
 
 ```ruby
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+
 require 'logger'
 
 logger = Logger.new(STDOUT)
@@ -146,15 +218,35 @@ logger.level = Logger::WARN # <= change level
 logger.warn("Nothing to do!") # output
 logger.info("Program started") # none
 logger.debug("Created logger") # none
-
-# https://docs.ruby-lang.org/ja/latest/library/logger.html
 ```
 
 ### Result
 
 ```
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+#=> nil
+
+require 'logger'
+#=> true
+
+logger = Logger.new(STDOUT)
+#=> 
+#<Logger:0x000000010ae70210
+...
+
+puts "Level WARN"
 Level WARN
-W, [2024-01-20T13:33:16.149103 #28066]  WARN -- : Nothing to do!
+#=> nil
+logger.level = Logger::WARN # <= change level
+#=> 2
+
+logger.warn("Nothing to do!") # output
+W, [2024-01-20T19:36:51.046291 #42255]  WARN -- : Nothing to do!
+#=> true
+logger.info("Program started") # none
+#=> true
+logger.debug("Created logger") # none
+#=> true
 ```
 
 ## main_block.rb
@@ -167,28 +259,41 @@ if __FILE__ == $0
 end
 ```
 
+### Result
+
+```
+if __FILE__ == $0
+?>     # Code block to be executed only if the script is run directly
+?>   
+?>     # Add your script's main logic here
+?>   end
+#=> nil
+```
+
 ## path_dir.rb
 
 ```ruby
-puts __dir__
+__dir__
 ```
 
 ### Result
 
 ```
-/Users/yuma/RubyQuickReference/codes
+__dir__
+#=> "."
 ```
 
 ## path_file.rb
 
 ```ruby
-puts __FILE__
+__FILE__
 ```
 
 ### Result
 
 ```
-path_file.rb
+__FILE__
+#=> "path_file.rb"
 ```
 
 ## read_csv_new.rb
@@ -210,6 +315,18 @@ end
 ### Result
 
 ```
+require 'csv'
+#=> true
+
+File.open("file.csv", "r") do |f|
+?>     csv = CSV.new(f, headers: true)
+?>     csv.each do |line|
+?>         line.each do |header, val|
+?>             p [header, val]
+?>           end
+?>         puts
+?>       end
+?>   end
 ["key", "key1"]
 ["value", "value1"]
 
@@ -218,6 +335,8 @@ end
 
 ["key", "key3"]
 ["value", "value3"]
+
+#=> nil
 ```
 
 ## read_csv_read.rb
@@ -238,6 +357,23 @@ end
 ### Result
 
 ```
+require 'csv'
+#=> true
+
+csv= CSV.read("file.csv", headers: true)
+#=> 
+#<CSV::Table mode:col_or_row row_count:4>
+...
+csv.headers # => headers
+#=> 
+["key",
+ "value"]
+csv.each do |vals_line|
+?>     csv.headers.each do |header|
+?>         p "#{header} => #{vals_line[header]}"
+?>       end
+?>     puts
+?>   end
 "key => key1"
 "value => value1"
 
@@ -246,6 +382,13 @@ end
 
 "key => key3"
 "value => value3"
+
+#=> 
+#<CSV::Table mode:col_or_row row_count:4>
+key,value
+key1,value1
+key2,value2
+key3,value3
 ```
 
 ## read_erb.rb
@@ -256,15 +399,24 @@ require 'erb'
 erb = ERB.new(File.read('file.html.erb'))
 @val = 'val'
 
-puts erb.result(binding)
+erb.result(binding)
 ```
 
 ### Result
 
 ```
-<h1>header</h1>
+require 'erb'
+#=> true
 
-<p>val</p>
+erb = ERB.new(File.read('file.html.erb'))
+#=> 
+#<ERB:0x0000000108319d00
+...
+@val = 'val'
+#=> "val"
+
+erb.result(binding)
+#=> "<h1>header</h1>\n\n<p>val</p>\n"
 ```
 
 ## read_erb_file_direct.rb
@@ -272,53 +424,66 @@ puts erb.result(binding)
 ```ruby
 require 'erb'
 
-puts ERB.new(File.read('file.html.erb')).result(binding)
+ERB.new(File.read('file.html.erb')).result(binding)
 ```
 
 ### Result
 
 ```
-<h1>header</h1>
+require 'erb'
+#=> true
 
-<p></p>
+ERB.new(File.read('file.html.erb')).result(binding)
+#=> "<h1>header</h1>\n\n<p></p>\n"
 ```
 
 ## read_file.rb
 
 ```ruby
-p File.read('filewr.txt')
+File.read('filewr.txt')
 ```
 
 ### Result
 
 ```
-"Hello"
+File.read('filewr.txt')
+#=> "Hello"
 ```
 
 ## read_json_load.rb
 
 ```ruby
 require 'json'
-p JSON.load(File.read('file.json'))
+JSON.load(File.read('file.json'))
 ```
 
 ### Result
 
 ```
-{"key"=>"value"}
+require 'json'
+#=> true
+JSON.load(File.read('file.json'))
+#=> 
+{"key"=>
+  "value"}
 ```
 
 ## read_json_open.rb
 
 ```ruby
 require 'json'
-p File.open('file.json') {|j| JSON.load(j)}
+File.open('file.json') {|j| JSON.load(j)}
 ```
 
 ### Result
 
 ```
-{"key"=>"value"}
+require 'json'
+#=> true
+File.open('file.json') {|j| JSON.load(j)}
+#=> 
+{"key"=>
+  "value"}
 ```
 
 ## stdin.rb
@@ -327,10 +492,24 @@ p File.open('file.json') {|j| JSON.load(j)}
 # $stdin.read
 ```
 
+### Result
+
+```
+# $stdin.read
+#=> nil
+```
+
 ## write_file.rb
 
 ```ruby
 File.write('filewr.txt', 'Hello')
+```
+
+### Result
+
+```
+File.write('filewr.txt', 'Hello')
+#=> 5
 ```
 
 ## write_json_open.rb
@@ -343,6 +522,21 @@ hash = {:key => 'value'}
 File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 ```
 
+### Result
+
+```
+require 'json'
+#=> true
+
+hash = {:key => 'value'}
+#=> 
+{:key=>
+...
+
+File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
+#=> #<File:file.json (closed)>
+```
+
 ## write_json_write.rb
 
 ```ruby
@@ -351,4 +545,19 @@ require 'json'
 hash = {:key => 'value'}
 
 File.write('file.json', JSON.dump(hash))
+```
+
+### Result
+
+```
+require 'json'
+#=> true
+
+hash = {:key => 'value'}
+#=> 
+{:key=>
+...
+
+File.write('file.json', JSON.dump(hash))
+#=> 15
 ```

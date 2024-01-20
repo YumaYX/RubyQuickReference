@@ -15,7 +15,10 @@ do
 $(cat ${line})
 \`\`\`
 RUBYSCRIPTEOF
-  result=$(ruby ${line})
+  result=$(irb --prompt simple ${line} \
+    | sed -e '$d' \
+    | sed -e 's/^=> /#=> /g;s/^>> //g' \
+    | grep -v '^Switch to inspect mode.$')
   if [ ! -z "${result}" ] ; then
   cat <<OUTPUT
 

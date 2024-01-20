@@ -1,1 +1,1 @@
-puts __dir__
+__dir__

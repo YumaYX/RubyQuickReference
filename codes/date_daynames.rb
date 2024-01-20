@@ -1,3 +1,2 @@
 require 'date'
-
-p Date::DAYNAMES
+Date::DAYNAMES

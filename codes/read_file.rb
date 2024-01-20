@@ -1,1 +1,1 @@
-p File.read('filewr.txt')
+File.read('filewr.txt')

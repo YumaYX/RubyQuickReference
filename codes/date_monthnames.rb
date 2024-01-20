@@ -1,3 +1,2 @@
 require 'date'
-
-p Date::MONTHNAMES
+Date::MONTHNAMES

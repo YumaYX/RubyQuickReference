@@ -1,2 +1,2 @@
 t = Time.now
-p t.strftime("%F")
+t.strftime("%F")

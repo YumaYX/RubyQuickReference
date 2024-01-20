@@ -1,2 +1,2 @@
 require 'json'
-p JSON.load(File.read('file.json'))
+JSON.load(File.read('file.json'))
