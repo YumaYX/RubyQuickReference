@@ -1,6 +1,6 @@
 title: Ruby Quick Reference
 description: A concise guide summarizing the fundamental features of Ruby in an accessible format
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 exclude:
   - codes
   - app.sh
