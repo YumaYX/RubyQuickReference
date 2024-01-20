@@ -2,7 +2,7 @@
 
 ## date.rb
 
-The overall purpose of the code is to capture the current date and time and then convert it into a string formatted as "YYYY-MM-DD."
+The overall purpose of the code is to capture the current date and time and then convert it into a string formatted as "YYYY-MM-DD".
 
 ```ruby
 t = Time.now
@@ -11,7 +11,7 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 22:26:24.672297 +0900
+#=> 2024-01-20 22:37:06.779643 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
@@ -157,7 +157,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010e934158
+#<Logger:0x0000000101044c30
 ...
 
 puts "Level INFO"
@@ -167,10 +167,10 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T22:26:28.109316 #66428]  WARN -- : Nothing to do!
+W, [2024-01-20T22:37:09.285341 #67576]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T22:26:28.109756 #66428]  INFO -- : Program started
+I, [2024-01-20T22:37:09.285685 #67576]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
@@ -198,7 +198,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000108281730
+#<Logger:0x000000010dd84d80
 ...
 
 puts "Level WARN"
@@ -208,7 +208,7 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T22:26:28.547208 #66450]  WARN -- : Nothing to do!
+W, [2024-01-20T22:37:09.604370 #67598]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
@@ -359,7 +359,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x000000010df0a240
+#<ERB:0x0000000102f2d8e0
 ...
 @val = 'val'
 #=> "val"
