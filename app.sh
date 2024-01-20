@@ -22,8 +22,6 @@ RUBYSCRIPTEOF
   if [ ! -z "${result}" ] ; then
   cat <<OUTPUT
 
-### Result
-
 \`\`\`
 $result
 \`\`\`

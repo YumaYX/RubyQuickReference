@@ -8,11 +8,9 @@ t = Time.now
 t.strftime("%F")
 ```
 
-### Result
-
 ```
 t = Time.now
-#=> 2024-01-20 19:36:46.50398 +0900
+#=> 2024-01-20 20:05:17.001614 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
@@ -23,8 +21,6 @@ t.strftime("%F")
 require 'date'
 Date::DAYNAMES
 ```
-
-### Result
 
 ```
 require 'date'
@@ -47,8 +43,6 @@ require 'date'
 DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ```
 
-### Result
-
 ```
 require 'date'
 #=> true
@@ -64,8 +58,6 @@ DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 require 'date'
 Date::MONTHNAMES
 ```
-
-### Result
 
 ```
 require 'date'
@@ -93,8 +85,6 @@ Date::MONTHNAMES
 File.readlines('file.txt').map(&:chomp)
 ```
 
-### Result
-
 ```
 File.readlines('file.txt').map(&:chomp)
 #=> 
@@ -110,8 +100,6 @@ doc = <<~'EOL'
   string
 EOL
 ```
-
-### Result
 
 ```
 doc = <<~'EOL'
@@ -129,8 +117,6 @@ doc = <<~EOL
 EOL
 ```
 
-### Result
-
 ```
 value = 'ruby'
 #=> "ruby"
@@ -146,8 +132,6 @@ doc = <<~EOL
 hash = Hash.new(0)
 hash['key'] += 1
 ```
-
-### Result
 
 ```
 hash = Hash.new(0)
@@ -173,8 +157,6 @@ logger.info("Program started") # output
 logger.debug("Created logger") # none
 ```
 
-### Result
-
 ```
 # https://docs.ruby-lang.org/ja/latest/library/logger.html
 #=> nil
@@ -184,7 +166,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010f3ee0a8
+#<Logger:0x00000001063eea48
 ...
 
 puts "Level INFO"
@@ -194,10 +176,10 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T19:36:50.521551 #42234]  WARN -- : Nothing to do!
+W, [2024-01-20T20:05:20.891398 #44899]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T19:36:50.522223 #42234]  INFO -- : Program started
+I, [2024-01-20T20:05:20.892079 #44899]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
@@ -220,8 +202,6 @@ logger.info("Program started") # none
 logger.debug("Created logger") # none
 ```
 
-### Result
-
 ```
 # https://docs.ruby-lang.org/ja/latest/library/logger.html
 #=> nil
@@ -231,7 +211,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010ae70210
+#<Logger:0x000000010ba61060
 ...
 
 puts "Level WARN"
@@ -241,7 +221,7 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T19:36:51.046291 #42255]  WARN -- : Nothing to do!
+W, [2024-01-20T20:05:21.364881 #44920]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
@@ -259,8 +239,6 @@ if __FILE__ == $0
 end
 ```
 
-### Result
-
 ```
 if __FILE__ == $0
 ?>     # Code block to be executed only if the script is run directly
@@ -276,8 +254,6 @@ if __FILE__ == $0
 __dir__
 ```
 
-### Result
-
 ```
 __dir__
 #=> "."
@@ -288,8 +264,6 @@ __dir__
 ```ruby
 __FILE__
 ```
-
-### Result
 
 ```
 __FILE__
@@ -311,8 +285,6 @@ File.open("file.csv", "r") do |f|
   end
 end
 ```
-
-### Result
 
 ```
 require 'csv'
@@ -353,8 +325,6 @@ csv.each do |vals_line|
   puts
 end
 ```
-
-### Result
 
 ```
 require 'csv'
@@ -402,15 +372,13 @@ erb = ERB.new(File.read('file.html.erb'))
 erb.result(binding)
 ```
 
-### Result
-
 ```
 require 'erb'
 #=> true
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000108319d00
+#<ERB:0x000000010ff24080
 ...
 @val = 'val'
 #=> "val"
@@ -427,8 +395,6 @@ require 'erb'
 ERB.new(File.read('file.html.erb')).result(binding)
 ```
 
-### Result
-
 ```
 require 'erb'
 #=> true
@@ -443,8 +409,6 @@ ERB.new(File.read('file.html.erb')).result(binding)
 File.read('filewr.txt')
 ```
 
-### Result
-
 ```
 File.read('filewr.txt')
 #=> "Hello"
@@ -456,8 +420,6 @@ File.read('filewr.txt')
 require 'json'
 JSON.load(File.read('file.json'))
 ```
-
-### Result
 
 ```
 require 'json'
@@ -475,8 +437,6 @@ require 'json'
 File.open('file.json') {|j| JSON.load(j)}
 ```
 
-### Result
-
 ```
 require 'json'
 #=> true
@@ -492,8 +452,6 @@ File.open('file.json') {|j| JSON.load(j)}
 # $stdin.read
 ```
 
-### Result
-
 ```
 # $stdin.read
 #=> nil
@@ -504,8 +462,6 @@ File.open('file.json') {|j| JSON.load(j)}
 ```ruby
 File.write('filewr.txt', 'Hello')
 ```
-
-### Result
 
 ```
 File.write('filewr.txt', 'Hello')
@@ -521,8 +477,6 @@ hash = {:key => 'value'}
 
 File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 ```
-
-### Result
 
 ```
 require 'json'
@@ -546,8 +500,6 @@ hash = {:key => 'value'}
 
 File.write('file.json', JSON.dump(hash))
 ```
-
-### Result
 
 ```
 require 'json'
