@@ -10,7 +10,7 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 20:05:17.001614 +0900
+#=> 2024-01-20 20:22:43.45436 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
@@ -39,13 +39,10 @@ Date::DAYNAMES
 ## date_dow.rb
 
 ```ruby
-require 'date'
 DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ```
 
 ```
-require 'date'
-#=> true
 DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 #=> 
 ["日",
@@ -166,7 +163,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001063eea48
+#<Logger:0x0000000105e3fea8
 ...
 
 puts "Level INFO"
@@ -176,10 +173,10 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:05:20.891398 #44899]  WARN -- : Nothing to do!
+W, [2024-01-20T20:22:47.142605 #45660]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T20:05:20.892079 #44899]  INFO -- : Program started
+I, [2024-01-20T20:22:47.143050 #45660]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
@@ -211,7 +208,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010ba61060
+#<Logger:0x000000010d1b0d10
 ...
 
 puts "Level WARN"
@@ -221,7 +218,7 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:05:21.364881 #44920]  WARN -- : Nothing to do!
+W, [2024-01-20T20:22:47.603544 #45681]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
@@ -378,7 +375,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x000000010ff24080
+#<ERB:0x000000010e5f1810
 ...
 @val = 'val'
 #=> "val"
