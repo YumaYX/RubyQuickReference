@@ -6,21 +6,52 @@
 ```ruby
 t = Time.now
 p t.strftime("%F")
-
-
-require 'date'
-
-p Date::MONTHNAMES
-p Date::DAYNAMES
-p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ```
 
 ### Result
 
 ```
 "2024-01-20"
-[nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+```
+
+## date_daynames.rb
+
+```ruby
+require 'date'
+
+p Date::DAYNAMES
+```
+
+### Result
+
+```
 ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+```
+
+## date_monthnames.rb
+
+```ruby
+require 'date'
+
+p Date::MONTHNAMES
+```
+
+### Result
+
+```
+[nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+```
+
+## date_wof.rb
+
+```ruby
+require 'date'
+p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
+```
+
+### Result
+
+```
 ["日", "月", "火", "水", "木", "金", "土"]
 ```
 
@@ -76,20 +107,12 @@ hash = Hash.new(0)
 hash['key'] += 1
 ```
 
-## logger.rb
+## logger_info.rb
 
 ```ruby
 require 'logger'
 
 logger = Logger.new(STDOUT)
-
-puts "Level WARN"
-logger.level = Logger::WARN # <= change level
-
-logger.warn("Nothing to do!") # output
-logger.info("Program started") # none
-logger.debug("Created logger") # none
-
 
 puts "Level INFO"
 logger.level = Logger::INFO # <= change level
@@ -105,11 +128,33 @@ logger.debug("Created logger") # none
 ### Result
 
 ```
-Level WARN
-W, [2024-01-20T13:11:10.084339 #24942]  WARN -- : Nothing to do!
 Level INFO
-W, [2024-01-20T13:11:10.084584 #24942]  WARN -- : Nothing to do!
-I, [2024-01-20T13:11:10.084595 #24942]  INFO -- : Program started
+W, [2024-01-20T13:30:19.568595 #27574]  WARN -- : Nothing to do!
+I, [2024-01-20T13:30:19.568748 #27574]  INFO -- : Program started
+```
+
+## logger_warn.rb
+
+```ruby
+require 'logger'
+
+logger = Logger.new(STDOUT)
+
+puts "Level WARN"
+logger.level = Logger::WARN # <= change level
+
+logger.warn("Nothing to do!") # output
+logger.info("Program started") # none
+logger.debug("Created logger") # none
+
+# https://docs.ruby-lang.org/ja/latest/library/logger.html
+```
+
+### Result
+
+```
+Level WARN
+W, [2024-01-20T13:30:19.730060 #27591]  WARN -- : Nothing to do!
 ```
 
 ## main_block.rb
@@ -122,36 +167,34 @@ if __FILE__ == $0
 end
 ```
 
-## path.rb
+## path_dir.rb
 
 ```ruby
 puts __dir__
-
-puts __FILE__
 ```
 
 ### Result
 
 ```
 /Users/yuma/RubyQuickReference/codes
-path.rb
 ```
 
-## read_csv.rb
+## path_file.rb
 
 ```ruby
-# CSV.readを使う場合
-require 'csv'
-csv= CSV.read("file.csv", headers: true)
-csv.headers # => headers
-csv.each do |vals_line|
-  csv.headers.each do |header|
-    p "#{header} => #{vals_line[header]}"
-  end
-  puts
-end
+puts __FILE__
+```
 
-# or
+### Result
+
+```
+path_file.rb
+```
+
+## read_csv_new.rb
+
+```ruby
+require 'csv'
 
 File.open("file.csv", "r") do |f|
   csv = CSV.new(f, headers: true)
@@ -167,15 +210,6 @@ end
 ### Result
 
 ```
-"key => key1"
-"value => value1"
-
-"key => key2"
-"value => value2"
-
-"key => key3"
-"value => value3"
-
 ["key", "key1"]
 ["value", "value1"]
 
@@ -184,6 +218,34 @@ end
 
 ["key", "key3"]
 ["value", "value3"]
+```
+
+## read_csv_read.rb
+
+```ruby
+require 'csv'
+
+csv= CSV.read("file.csv", headers: true)
+csv.headers # => headers
+csv.each do |vals_line|
+  csv.headers.each do |header|
+    p "#{header} => #{vals_line[header]}"
+  end
+  puts
+end
+```
+
+### Result
+
+```
+"key => key1"
+"value => value1"
+
+"key => key2"
+"value => value2"
+
+"key => key3"
+"value => value3"
 ```
 
 ## read_erb.rb
@@ -233,19 +295,29 @@ p File.read('filewr.txt')
 "Hello"
 ```
 
-## read_json.rb
+## read_json_load.rb
 
 ```ruby
 require 'json'
 p JSON.load(File.read('file.json'))
-# or
-p File.open('file.json') {|j| JSON.load(j)}
 ```
 
 ### Result
 
 ```
 {"key"=>"value"}
+```
+
+## read_json_open.rb
+
+```ruby
+require 'json'
+p File.open('file.json') {|j| JSON.load(j)}
+```
+
+### Result
+
+```
 {"key"=>"value"}
 ```
 
@@ -261,7 +333,17 @@ p File.open('file.json') {|j| JSON.load(j)}
 File.write('filewr.txt', 'Hello')
 ```
 
-## write_json.rb
+## write_json_open.rb
+
+```ruby
+require 'json'
+
+hash = {:key => 'value'}
+
+File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
+```
+
+## write_json_write.rb
 
 ```ruby
 require 'json'
@@ -269,8 +351,4 @@ require 'json'
 hash = {:key => 'value'}
 
 File.write('file.json', JSON.dump(hash))
-
-#or
-
-File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 ```
