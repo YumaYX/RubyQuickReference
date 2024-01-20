@@ -22,7 +22,6 @@ RUBYSCRIPTEOF
 ### Result
 
 \`\`\`
-
 $result
 \`\`\`
 OUTPUT

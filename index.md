@@ -18,7 +18,6 @@ p DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ### Result
 
 ```
-
 "2024-01-20"
 [nil, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -34,7 +33,6 @@ p File.readlines('file.txt').map(&:chomp)
 ### Result
 
 ```
-
 ["line1", "line2", "line3"]
 ```
 
@@ -51,7 +49,6 @@ p doc
 ### Result
 
 ```
-
 "string\n"
 ```
 
@@ -69,7 +66,6 @@ p doc
 ### Result
 
 ```
-
 "ruby\n"
 ```
 
@@ -101,7 +97,6 @@ puts __FILE__
 ### Result
 
 ```
-
 /Users/yuma/RubyQuickReference/codes
 path.rb
 ```
@@ -136,7 +131,6 @@ end
 ### Result
 
 ```
-
 "key => key1"
 "value => value1"
 
@@ -170,7 +164,6 @@ puts erb.result(binding)
 ### Result
 
 ```
-
 <h1>header</h1>
 
 <p>val</p>
@@ -187,7 +180,6 @@ puts ERB.new(File.read('file.html.erb')).result(binding)
 ### Result
 
 ```
-
 <h1>header</h1>
 
 <p></p>
@@ -202,7 +194,6 @@ p File.read('filewr.txt')
 ### Result
 
 ```
-
 "Hello"
 ```
 
@@ -218,7 +209,6 @@ p File.open('file.json') {|j| JSON.load(j)}
 ### Result
 
 ```
-
 {"key"=>"value"}
 {"key"=>"value"}
 ```

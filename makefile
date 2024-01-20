@@ -1,5 +1,6 @@
 default:
 	sh app.sh | tee index.md
+	ln -fnsv index.md README.md
 
 pub:
 	git status
