@@ -10,7 +10,7 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 20:22:43.45436 +0900
+#=> 2024-01-20 20:29:55.103924 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
@@ -163,7 +163,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000105e3fea8
+#<Logger:0x000000010983ea50
 ...
 
 puts "Level INFO"
@@ -173,10 +173,10 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:22:47.142605 #45660]  WARN -- : Nothing to do!
+W, [2024-01-20T20:29:58.857502 #49834]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T20:22:47.143050 #45660]  INFO -- : Program started
+I, [2024-01-20T20:29:58.857945 #49834]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
@@ -208,7 +208,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010d1b0d10
+#<Logger:0x0000000110296c40
 ...
 
 puts "Level WARN"
@@ -218,7 +218,7 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T20:22:47.603544 #45681]  WARN -- : Nothing to do!
+W, [2024-01-20T20:29:59.345087 #49855]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
@@ -375,7 +375,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x000000010e5f1810
+#<ERB:0x0000000105b319f0
 ...
 @val = 'val'
 #=> "val"
