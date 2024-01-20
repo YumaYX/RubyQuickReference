@@ -2,6 +2,8 @@
 
 ## date.rb
 
+The overall purpose of the code is to capture the current date and time and then convert it into a string formatted as "YYYY-MM-DD."
+
 ```ruby
 t = Time.now
 t.strftime("%F")
@@ -9,7 +11,7 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 21:11:28.980785 +0900
+#=> 2024-01-20 22:26:24.672297 +0900
 t.strftime("%F")
 #=> "2024-01-20"
 ```
@@ -88,6 +90,8 @@ File.readlines('file.txt').map(&:chomp)
 ```
 ## heredoc.rb
 
+If you are using Ruby version 2.3.0 or any later version, you can use this syntax without any issues. If you are using an earlier version, you might encounter a syntax error.
+
 ```ruby
 doc = <<~'EOL'
   string
@@ -132,9 +136,7 @@ hash['key'] += 1
 ```
 ## logger_info.rb
 
-Ref.
-
-- <https://docs.ruby-lang.org/ja/latest/library/logger.html>
+Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 ```ruby
 require 'logger'
@@ -155,7 +157,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000106153d38
+#<Logger:0x000000010e934158
 ...
 
 puts "Level INFO"
@@ -165,19 +167,17 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T21:11:32.831553 #63473]  WARN -- : Nothing to do!
+W, [2024-01-20T22:26:28.109316 #66428]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T21:11:32.831983 #63473]  INFO -- : Program started
+I, [2024-01-20T22:26:28.109756 #66428]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
 ```
 ## logger_warn.rb
 
-Ref.
-
-- <https://docs.ruby-lang.org/ja/latest/library/logger.html>
+Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 ```ruby
 require 'logger'
@@ -198,7 +198,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000106d62408
+#<Logger:0x0000000108281730
 ...
 
 puts "Level WARN"
@@ -208,7 +208,7 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T21:11:33.473570 #63495]  WARN -- : Nothing to do!
+W, [2024-01-20T22:26:28.547208 #66450]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
@@ -359,7 +359,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000108d81860
+#<ERB:0x000000010df0a240
 ...
 @val = 'val'
 #=> "val"
