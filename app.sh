@@ -15,19 +15,13 @@ do
     echo
   fi
 
-  cat <<RUBYSCRIPTEOF
-\`\`\`ruby
-$(cat ${line})
-\`\`\`
-
-RUBYSCRIPTEOF
-  result=$(irb --prompt simple ${line} \
-    | sed -e '$d' \
-    | sed -e 's/^=> /#=> /g;s/^>> //g' \
-    | grep -v '^Switch to inspect mode.$')
   cat <<OUTPUT
-\`\`\`
-$result
+\`\`\`ruby
+$(irb --prompt simple ${line} \
+    | sed -e '$d' \
+    | sed -e 's/^=> /#=> /g' \
+    | sed -e 's/^>> $//g' \
+    | grep -v '^Switch to inspect mode.$')
 \`\`\`
 
 OUTPUT
