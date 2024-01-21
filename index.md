@@ -6,7 +6,7 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-21 12:46:32.374138 +0900
+#=> 2024-01-21 18:08:33.445408 +0900
 >> t.strftime("%F")
 #=> "2024-01-21"
 ```
@@ -30,6 +30,8 @@ The overall purpose of the code is to capture the current date and time and then
 ```
 
 ## date_dow.rb
+
+This code defines a constant `DOW_JP` representing the days of the week in Japanese (日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日).
 
 ```ruby
 >> DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
@@ -120,7 +122,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001073fb710
+#<Logger:0x0000000106be9bf8
 ...
 
 >> puts "Level INFO"
@@ -130,10 +132,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-21T12:46:35.073350 #98264]  WARN -- : Nothing to do!
+W, [2024-01-21T18:08:35.986717 #3222]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-21T12:46:35.073728 #98264]  INFO -- : Program started
+I, [2024-01-21T18:08:35.987123 #3222]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -149,7 +151,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000105eab6d0
+#<Logger:0x00000001043f9b48
 ...
 
 >> puts "Level WARN"
@@ -159,7 +161,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-21T12:46:35.414481 #98285]  WARN -- : Nothing to do!
+W, [2024-01-21T18:08:36.300296 #3243]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -168,6 +170,8 @@ W, [2024-01-21T12:46:35.414481 #98285]  WARN -- : Nothing to do!
 ```
 
 ## main_block.rb
+
+This Ruby code checks whether the current file is being executed directly (as opposed to being required as a module in another file) and performs actions specified within the `if` block when true.
 
 ```ruby
 >> if __FILE__ == $0
@@ -180,6 +184,8 @@ W, [2024-01-21T12:46:35.414481 #98285]  WARN -- : Nothing to do!
 
 ## path_dir.rb
 
+`__dir__` is a built-in method in Ruby that returns the absolute path of the directory containing the source file in which it is called. It provides a convenient way to reference the current script's directory.
+
 ```ruby
 >> __dir__
 #=> "."
@@ -187,12 +193,16 @@ W, [2024-01-21T12:46:35.414481 #98285]  WARN -- : Nothing to do!
 
 ## path_file.rb
 
+`__FILE__` in Ruby is a predefined constant that represents the current file's name. It returns a string with the name of the file in which it is used.
+
 ```ruby
 >> __FILE__
 #=> "path_file.rb"
 ```
 
 ## read_csv_new.rb
+
+This Ruby code reads a CSV file named "file.csv" and prints each row as an array of header-value pairs. It utilizes the CSV library to handle the parsing of the CSV file and iterates through each row, printing the header and corresponding value for each column in that row.
 
 ```ruby
 >> require 'csv'
@@ -220,6 +230,8 @@ W, [2024-01-21T12:46:35.414481 #98285]  WARN -- : Nothing to do!
 ```
 
 ## read_csv_read.rb
+
+This Ruby code uses the CSV library to read data from a CSV file. It reads the file with headers, iterates through each row, and prints each header-value pair for every row in a human-readable format.
 
 ```ruby
 >> require 'csv'
@@ -258,13 +270,15 @@ key3,value3
 
 ## read_erb.rb
 
+This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template stored in a file named 'file.html.erb.' It creates an ERB object, reads the template file, and sets a variable '@val' to the value 'val.' Finally, it evaluates the ERB template with the current binding, and the result is returned.
+
 ```ruby
 >> require 'erb'
 #=> true
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x000000010369fdd0
+#<ERB:0x0000000104275dd0
 ...
 >> @val = 'val'
 #=> "val"
@@ -274,6 +288,8 @@ key3,value3
 ```
 
 ## read_erb_file_direct.rb
+
+This Ruby code snippet utilizes the Embedded Ruby (ERB) library to process and evaluate the content of an ERB template file ('file.html.erb'). It reads the file, interprets embedded Ruby code within it, and produces the final result by applying the specified binding.
 
 ```ruby
 >> require 'erb'
@@ -285,12 +301,16 @@ key3,value3
 
 ## read_file.rb
 
+This Ruby code uses the `File.read` method to read the contents of a file named 'filewr.txt' and returns the content as a string.
+
 ```ruby
 >> File.read('filewr.txt')
 #=> "Hello"
 ```
 
 ## read_json_load.rb
+
+This Ruby code snippet uses the 'json' library to load and parse data from a JSON file named 'file.json'. The 'require' statement is used to include the necessary JSON library, and 'JSON.load' is then employed to read and convert the contents of the JSON file into a Ruby data structure.
 
 ```ruby
 >> require 'json'
@@ -303,6 +323,8 @@ key3,value3
 
 ## read_json_open.rb
 
+This Ruby code uses the 'json' library to read and parse a JSON file named 'file.json'. It opens the file and uses the JSON.load method to load and parse the content, returning a Ruby data structure representing the JSON data.
+
 ```ruby
 >> require 'json'
 #=> true
@@ -314,6 +336,8 @@ key3,value3
 
 ## stdin.rb
 
+The line of Ruby code `$stdin.read` reads input from the standard input (keyboard) until the end of the file (EOF) is reached, and stores the input as a string.
+
 ```ruby
 >> # $stdin.read
 #=> nil
@@ -321,12 +345,16 @@ key3,value3
 
 ## write_file.rb
 
+This Ruby code snippet uses the `File.write` method to create a file named 'filewr.txt' and write the text 'Hello' into it.
+
 ```ruby
 >> File.write('filewr.txt', 'Hello')
 #=> 5
 ```
 
 ## write_json_open.rb
+
+This Ruby code uses the 'json' library to convert a hash (key-value pair) into a JSON format and then writes it to a file named 'file.json'. The hash contains a single key-value pair, where the key is ":key" and the value is "'value'". The File.open block ensures the JSON representation of the hash is dumped into the specified file in write ('w') mode.
 
 ```ruby
 >> require 'json'
@@ -342,6 +370,8 @@ key3,value3
 ```
 
 ## write_json_write.rb
+
+This Ruby code snippet uses the 'json' library to work with JSON data. It creates a hash with a key-value pair and then writes the hash as a JSON-formatted string to a file named 'file.json'.
 
 ```ruby
 >> require 'json'
