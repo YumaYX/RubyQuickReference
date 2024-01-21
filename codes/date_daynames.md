@@ -1,0 +1,1 @@
+`Date::DAYNAMES` is an array that holds the names of the days of the week in the English language. This constant offers a convenient method for developers to retrieve the names of the days without having to manually define them.

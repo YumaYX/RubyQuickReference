@@ -1,0 +1,1 @@
+`Date::MONTHNAMES` is a constant that holds an array of month names.

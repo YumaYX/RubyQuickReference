@@ -11,11 +11,14 @@ t.strftime("%F")
 
 ```
 t = Time.now
-#=> 2024-01-20 22:37:06.779643 +0900
+#=> 2024-01-21 10:06:01.05369 +0900
 t.strftime("%F")
-#=> "2024-01-20"
+#=> "2024-01-21"
 ```
+
 ## date_daynames.rb
+
+`Date::DAYNAMES` is an array that holds the names of the days of the week in the English language. This constant offers a convenient method for developers to retrieve the names of the days without having to manually define them.
 
 ```ruby
 require 'date'
@@ -35,6 +38,7 @@ Date::DAYNAMES
  "Friday",
  "Saturday"]
 ```
+
 ## date_dow.rb
 
 ```ruby
@@ -47,8 +51,10 @@ DOW_JP = %w[日 月 火 水 木 金 土].map(&:freeze).freeze
 ["日",
 ...
 ```
+
 ## date_monthnames.rb
 
+`Date::MONTHNAMES` is a constant that holds an array of month names.
 ```ruby
 require 'date'
 Date::MONTHNAMES
@@ -73,6 +79,7 @@ Date::MONTHNAMES
  "November",
  "December"]
 ```
+
 ## file_to_array.rb
 
 It reads the file, creates an array of lines, and then removes the newline character from each line in the array.
@@ -88,6 +95,7 @@ File.readlines('file.txt').map(&:chomp)
  "line2",
  "line3"]
 ```
+
 ## heredoc.rb
 
 If you are using Ruby version 2.3.0 or any later version, you can use this syntax without any issues. If you are using an earlier version, you might encounter a syntax error.
@@ -104,7 +112,12 @@ doc = <<~'EOL'
 '> EOL
 #=> "string\n"
 ```
+
 ## heredoc_with_value.rb
+
+The `<<~EOL` syntax is the heredoc delimiter, and it allows the enclosed text to be treated as a string with preserved whitespace. The `#{value}` within the heredoc is a string interpolation, where the value of the `value` variable is inserted into the string. Therefore, the final content of the `doc` variable would be the string 'ruby'.
+
+If you are using Ruby version 2.3.0 or any later version, you can use this syntax without any issues. If you are using an earlier version, you might encounter a syntax error.
 
 ```ruby
 value = 'ruby'
@@ -121,7 +134,10 @@ doc = <<~EOL
 "> EOL
 #=> "ruby\n"
 ```
+
 ## init_empty_hash.rb
+
+This hash is initialized with a default value of 0 for any key that doesn't exist. The next line increments the value associated with the key 'key' by 1. If the key 'key' doesn't exist in the hash, it is created with an initial value of 1. So, this code is effectively counting the occurrences of the 'key' in the hash.
 
 ```ruby
 hash = Hash.new(0)
@@ -134,6 +150,7 @@ hash = Hash.new(0)
 hash['key'] += 1
 #=> 1
 ```
+
 ## logger_info.rb
 
 Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
@@ -157,7 +174,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000101044c30
+#<Logger:0x00000001006e8d58
 ...
 
 puts "Level INFO"
@@ -167,14 +184,15 @@ logger.level = Logger::INFO # <= change level
 #=> 1
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T22:37:09.285341 #67576]  WARN -- : Nothing to do!
+W, [2024-01-21T10:06:03.711995 #79006]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # output
-I, [2024-01-20T22:37:09.285685 #67576]  INFO -- : Program started
+I, [2024-01-21T10:06:03.712361 #79006]  INFO -- : Program started
 #=> true
 logger.debug("Created logger") # none
 #=> true
 ```
+
 ## logger_warn.rb
 
 Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
@@ -198,7 +216,7 @@ require 'logger'
 
 logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010dd84d80
+#<Logger:0x00000001098a8ce8
 ...
 
 puts "Level WARN"
@@ -208,13 +226,14 @@ logger.level = Logger::WARN # <= change level
 #=> 2
 
 logger.warn("Nothing to do!") # output
-W, [2024-01-20T22:37:09.604370 #67598]  WARN -- : Nothing to do!
+W, [2024-01-21T10:06:04.041562 #79028]  WARN -- : Nothing to do!
 #=> true
 logger.info("Program started") # none
 #=> true
 logger.debug("Created logger") # none
 #=> true
 ```
+
 ## main_block.rb
 
 ```ruby
@@ -233,6 +252,7 @@ if __FILE__ == $0
 ?>   end
 #=> nil
 ```
+
 ## path_dir.rb
 
 ```ruby
@@ -243,6 +263,7 @@ __dir__
 __dir__
 #=> "."
 ```
+
 ## path_file.rb
 
 ```ruby
@@ -253,6 +274,7 @@ __FILE__
 __FILE__
 #=> "path_file.rb"
 ```
+
 ## read_csv_new.rb
 
 ```ruby
@@ -293,6 +315,7 @@ File.open("file.csv", "r") do |f|
 
 #=> nil
 ```
+
 ## read_csv_read.rb
 
 ```ruby
@@ -342,6 +365,7 @@ key1,value1
 key2,value2
 key3,value3
 ```
+
 ## read_erb.rb
 
 ```ruby
@@ -359,7 +383,7 @@ require 'erb'
 
 erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000102f2d8e0
+#<ERB:0x000000010baff3c8
 ...
 @val = 'val'
 #=> "val"
@@ -367,6 +391,7 @@ erb = ERB.new(File.read('file.html.erb'))
 erb.result(binding)
 #=> "<h1>header</h1>\n\n<p>val</p>\n"
 ```
+
 ## read_erb_file_direct.rb
 
 ```ruby
@@ -382,6 +407,7 @@ require 'erb'
 ERB.new(File.read('file.html.erb')).result(binding)
 #=> "<h1>header</h1>\n\n<p></p>\n"
 ```
+
 ## read_file.rb
 
 ```ruby
@@ -392,6 +418,7 @@ File.read('filewr.txt')
 File.read('filewr.txt')
 #=> "Hello"
 ```
+
 ## read_json_load.rb
 
 ```ruby
@@ -407,6 +434,7 @@ JSON.load(File.read('file.json'))
 {"key"=>
   "value"}
 ```
+
 ## read_json_open.rb
 
 ```ruby
@@ -422,6 +450,7 @@ File.open('file.json') {|j| JSON.load(j)}
 {"key"=>
   "value"}
 ```
+
 ## stdin.rb
 
 ```ruby
@@ -432,6 +461,7 @@ File.open('file.json') {|j| JSON.load(j)}
 # $stdin.read
 #=> nil
 ```
+
 ## write_file.rb
 
 ```ruby
@@ -442,6 +472,7 @@ File.write('filewr.txt', 'Hello')
 File.write('filewr.txt', 'Hello')
 #=> 5
 ```
+
 ## write_json_open.rb
 
 ```ruby
@@ -464,6 +495,7 @@ hash = {:key => 'value'}
 File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 #=> #<File:file.json (closed)>
 ```
+
 ## write_json_write.rb
 
 ```ruby
@@ -486,3 +518,4 @@ hash = {:key => 'value'}
 File.write('file.json', JSON.dump(hash))
 #=> 15
 ```
+
