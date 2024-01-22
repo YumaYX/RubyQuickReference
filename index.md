@@ -6,9 +6,9 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-21 18:08:33.445408 +0900
+#=> 2024-01-22 21:39:03.329126 +0900
 >> t.strftime("%F")
-#=> "2024-01-21"
+#=> "2024-01-22"
 ```
 
 ## date_daynames.rb
@@ -38,6 +38,31 @@ This code defines a constant `DOW_JP` representing the days of the week in Japan
 #=> 
 ["日",
 ...
+```
+
+## date_monday_of_this_week1.rb
+
+This Ruby snippet utilizes the 'date' library to work with dates. It begins by requiring the library. Then, it obtains the current date and calculates the date for the beginning of the current week (Monday) by subtracting the current day's index from the current date and adding 1. The result is stored in the variable `this_monday`.
+
+```ruby
+>> require 'date'
+#=> true
+
+>> today = Date.today
+#=> #<Date: 2024-01-22 ((2460332j,0s,0n),+0s,2299161j)>
+>> this_monday = today - today.wday + 1
+#=> #<Date: 2024-01-22 ((2460332j,0s,0n),+0s,2299161j)>
+```
+
+## date_monday_of_this_week2.rb
+
+This Ruby snippet captures the current date and time, then calculates and assigns the date of the most recent Monday by subtracting the number of seconds corresponding to the days elapsed since the beginning of the week.
+
+```ruby
+>> today = Time.now
+#=> 2024-01-22 21:39:05.065264 +0900
+>> this_monday = today - (today.wday - 1) * 24 * 60 * 60
+#=> 2024-01-22 21:39:05.065264 +0900
 ```
 
 ## date_monthnames.rb
@@ -122,7 +147,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000106be9bf8
+#<Logger:0x000000010df01fa0
 ...
 
 >> puts "Level INFO"
@@ -132,10 +157,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-21T18:08:35.986717 #3222]  WARN -- : Nothing to do!
+W, [2024-01-22T21:39:07.760854 #9073]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-21T18:08:35.987123 #3222]  INFO -- : Program started
+I, [2024-01-22T21:39:07.761293 #9073]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -151,7 +176,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001043f9b48
+#<Logger:0x000000010df07568
 ...
 
 >> puts "Level WARN"
@@ -161,7 +186,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-21T18:08:36.300296 #3243]  WARN -- : Nothing to do!
+W, [2024-01-22T21:39:08.208445 #9094]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -278,7 +303,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000104275dd0
+#<ERB:0x00000001019a69b8
 ...
 >> @val = 'val'
 #=> "val"
