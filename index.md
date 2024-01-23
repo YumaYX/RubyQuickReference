@@ -39,10 +39,12 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-23 23:28:33.364823 +0900
+#=> 2024-01-23 23:31:27.671674 +0900
 >> t.strftime("%F")
 #=> "2024-01-23"
 ```
+
+---
 
 # date_daynames.rb
 
@@ -62,6 +64,8 @@ The overall purpose of the code is to capture the current date and time and then
  "Saturday"]
 ```
 
+---
+
 # date_dow.rb
 
 This code defines a constant `DOW_JP` representing the days of the week in Japanese (日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日).
@@ -72,6 +76,8 @@ This code defines a constant `DOW_JP` representing the days of the week in Japan
 ["日",
 ...
 ```
+
+---
 
 # date_monday_of_this_week1.rb
 
@@ -87,16 +93,20 @@ This Ruby snippet utilizes the 'date' library to work with dates. It begins by r
 #=> #<Date: 2024-01-22 ((2460332j,0s,0n),+0s,2299161j)>
 ```
 
+---
+
 # date_monday_of_this_week2.rb
 
 This Ruby snippet captures the current date and time, then calculates and assigns the date of the most recent Monday by subtracting the number of seconds corresponding to the days elapsed since the beginning of the week.
 
 ```ruby
 >> today = Time.now
-#=> 2024-01-23 23:28:35.131287 +0900
+#=> 2024-01-23 23:31:29.281066 +0900
 >> this_monday = today - (today.wday - 1) * 24 * 60 * 60
-#=> 2024-01-22 23:28:35.131287 +0900
+#=> 2024-01-22 23:31:29.281066 +0900
 ```
+
+---
 
 # date_monthnames.rb
 
@@ -121,6 +131,8 @@ This Ruby snippet captures the current date and time, then calculates and assign
  "December"]
 ```
 
+---
+
 # file_to_array.rb
 
 It reads the file, creates an array of lines, and then removes the newline character from each line in the array.
@@ -133,6 +145,8 @@ It reads the file, creates an array of lines, and then removes the newline chara
  "line3"]
 ```
 
+---
+
 # heredoc.rb
 
 If you are using Ruby version 2.3.0 or any later version, you can use this syntax without any issues. If you are using an earlier version, you might encounter a syntax error.
@@ -143,6 +157,8 @@ If you are using Ruby version 2.3.0 or any later version, you can use this synta
 '> EOL
 #=> "string\n"
 ```
+
+---
 
 # heredoc_with_value.rb
 
@@ -159,6 +175,8 @@ If you are using Ruby version 2.3.0 or any later version, you can use this synta
 #=> "ruby\n"
 ```
 
+---
+
 # init_empty_hash.rb
 
 This hash is initialized with a default value of 0 for any key that doesn't exist. The next line increments the value associated with the key 'key' by 1. If the key 'key' doesn't exist in the hash, it is created with an initial value of 1. So, this code is effectively counting the occurrences of the 'key' in the hash.
@@ -170,6 +188,8 @@ This hash is initialized with a default value of 0 for any key that doesn't exis
 #=> 1
 ```
 
+---
+
 # logger_info.rb
 
 Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
@@ -180,7 +200,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000108e7a820
+#<Logger:0x00000001043396e0
 ...
 
 >> puts "Level INFO"
@@ -190,14 +210,16 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:28:38.136036 #1626]  WARN -- : Nothing to do!
+W, [2024-01-23T23:31:31.693709 #2912]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-23T23:28:38.139062 #1626]  INFO -- : Program started
+I, [2024-01-23T23:31:31.694157 #2912]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
 ```
+
+---
 
 # logger_warn.rb
 
@@ -209,7 +231,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010acf97b0
+#<Logger:0x0000000101f59658
 ...
 
 >> puts "Level WARN"
@@ -219,13 +241,15 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:28:38.606288 #1647]  WARN -- : Nothing to do!
+W, [2024-01-23T23:31:32.104744 #2933]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
 ```
+
+---
 
 # main_block.rb
 
@@ -240,6 +264,8 @@ This Ruby code checks whether the current file is being executed directly (as op
 #=> nil
 ```
 
+---
+
 # path_dir.rb
 
 `__dir__` is a built-in method in Ruby that returns the absolute path of the directory containing the source file in which it is called. It provides a convenient way to reference the current script's directory.
@@ -249,6 +275,8 @@ This Ruby code checks whether the current file is being executed directly (as op
 #=> "."
 ```
 
+---
+
 # path_file.rb
 
 `__FILE__` in Ruby is a predefined constant that represents the current file's name. It returns a string with the name of the file in which it is used.
@@ -257,6 +285,8 @@ This Ruby code checks whether the current file is being executed directly (as op
 >> __FILE__
 #=> "path_file.rb"
 ```
+
+---
 
 # read_csv_new.rb
 
@@ -286,6 +316,8 @@ This Ruby code reads a CSV file named "file.csv" and prints each row as an array
 
 #=> nil
 ```
+
+---
 
 # read_csv_read.rb
 
@@ -326,6 +358,8 @@ key2,value2
 key3,value3
 ```
 
+---
+
 # read_erb.rb
 
 This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template stored in a file named 'file.html.erb.' It creates an ERB object, reads the template file, and sets a variable '@val' to the value 'val.' Finally, it evaluates the ERB template with the current binding, and the result is returned.
@@ -336,7 +370,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000108e90eb8
+#<ERB:0x0000000103000ec0
 ...
 >> @val = 'val'
 #=> "val"
@@ -344,6 +378,8 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 >> erb.result(binding)
 #=> "<h1>header</h1>\n\n<p>val</p>\n"
 ```
+
+---
 
 # read_erb_file_direct.rb
 
@@ -357,6 +393,8 @@ This Ruby code snippet utilizes the Embedded Ruby (ERB) library to process and e
 #=> "<h1>header</h1>\n\n<p></p>\n"
 ```
 
+---
+
 # read_file.rb
 
 This Ruby code uses the `File.read` method to read the contents of a file named 'filewr.txt' and returns the content as a string.
@@ -365,6 +403,8 @@ This Ruby code uses the `File.read` method to read the contents of a file named 
 >> File.read('filewr.txt')
 #=> "Hello"
 ```
+
+---
 
 # read_json_load.rb
 
@@ -379,6 +419,8 @@ This Ruby code snippet uses the 'json' library to load and parse data from a JSO
   "value"}
 ```
 
+---
+
 # read_json_open.rb
 
 This Ruby code uses the 'json' library to read and parse a JSON file named 'file.json'. It opens the file and uses the JSON.load method to load and parse the content, returning a Ruby data structure representing the JSON data.
@@ -392,6 +434,8 @@ This Ruby code uses the 'json' library to read and parse a JSON file named 'file
   "value"}
 ```
 
+---
+
 # stdin.rb
 
 The line of Ruby code `$stdin.read` reads input from the standard input (keyboard) until the end of the file (EOF) is reached, and stores the input as a string.
@@ -401,6 +445,8 @@ The line of Ruby code `$stdin.read` reads input from the standard input (keyboar
 #=> nil
 ```
 
+---
+
 # write_file.rb
 
 This Ruby code snippet uses the `File.write` method to create a file named 'filewr.txt' and write the text 'Hello' into it.
@@ -409,6 +455,8 @@ This Ruby code snippet uses the `File.write` method to create a file named 'file
 >> File.write('filewr.txt', 'Hello')
 #=> 5
 ```
+
+---
 
 # write_json_open.rb
 
@@ -426,6 +474,8 @@ This Ruby code uses the 'json' library to convert a hash (key-value pair) into a
 >> File.open('file.json', 'w') {|f| JSON.dump(hash, f)}
 #=> #<File:file.json (closed)>
 ```
+
+---
 
 # write_json_write.rb
 
