@@ -8,6 +8,7 @@
 - [date_monday_of_this_week1.rb](https://yumayx.github.io/RubyQuickReference/#date_monday_of_this_week1rb)
 - [date_monday_of_this_week2.rb](https://yumayx.github.io/RubyQuickReference/#date_monday_of_this_week2rb)
 - [date_monthnames.rb](https://yumayx.github.io/RubyQuickReference/#date_monthnamesrb)
+- [deprecate_method.rb](https://yumayx.github.io/RubyQuickReference/#deprecate_methodrb)
 - [encryption_with_rsa.rb](https://yumayx.github.io/RubyQuickReference/#encryption_with_rsarb)
 - [file_to_array.rb](https://yumayx.github.io/RubyQuickReference/#file_to_arrayrb)
 - [heredoc.rb](https://yumayx.github.io/RubyQuickReference/#heredocrb)

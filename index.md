@@ -9,6 +9,7 @@
 <li><a href="#date_monday_of_this_week1rb">date_monday_of_this_week1.rb</a></li>
 <li><a href="#date_monday_of_this_week2rb">date_monday_of_this_week2.rb</a></li>
 <li><a href="#date_monthnamesrb">date_monthnames.rb</a></li>
+<li><a href="#deprecate_methodrb">deprecate_method.rb</a></li>
 <li><a href="#encryption_with_rsarb">encryption_with_rsa.rb</a></li>
 <li><a href="#file_to_arrayrb">file_to_array.rb</a></li>
 <li><a href="#heredocrb">heredoc.rb</a></li>
@@ -40,7 +41,7 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-24 00:13:39.922049 +0900
+#=> 2024-01-24 00:46:27.944266 +0900
 >> t.strftime("%F")
 #=> "2024-01-24"
 ```
@@ -102,9 +103,9 @@ This Ruby snippet captures the current date and time, then calculates and assign
 
 ```ruby
 >> today = Time.now
-#=> 2024-01-24 00:13:41.537821 +0900
+#=> 2024-01-24 00:46:29.664384 +0900
 >> this_monday = today - (today.wday - 1) * 24 * 60 * 60
-#=> 2024-01-22 00:13:41.537821 +0900
+#=> 2024-01-22 00:46:29.664384 +0900
 ```
 
 ---
@@ -134,6 +135,40 @@ This Ruby snippet captures the current date and time, then calculates and assign
 
 ---
 
+# deprecate_method.rb
+
+This Ruby snippet employs the `deprecate` method defined within the `Module` class to mark other methods as deprecated. When this method is invoked with an existing method name, it dynamically creates a wrapper for that method. The wrapper issues a warning to standard error, signaling the deprecation of the original method, and then invokes the original method using aliasing to preserve its functionality. This allows developers to gradually phase out the usage of deprecated methods while providing a warning about their obsolescence. In the provided example, the `mymethod` of an instance of `MyClass` is marked as deprecated using the `deprecate` method, and attempting to call `mymethod` triggers a warning message.
+
+Additionally, this snippet employs Ruby's specialized features, often referred to as "Ruby metaprogramming" or "Ruby magic," to open up and modify a class's methods dynamically. This technique enables the alteration of existing class or module methods at runtime.
+
+Ref. <https://qiita.com/snaka/items/d3651b80cbca90a7956e>
+
+```ruby
+>> class Module
+?>     def deprecate(method_name)
+?>         module_eval <<-END, __FILE__, __LINE__ + 1
+">         alias_method :deprecated_#{method_name}, :#{method_name}
+">         def #{method_name}(*args, &block)
+">           $stderr.puts "Warning: #{self}##{method_name} deprecate"
+">           deprecated_#{method_name}(*args, &block)
+">         end
+">     END
+?>       end
+?>   end
+#=> :deprecate
+
+>> class MyClass
+?>     def mymethod; end
+?>     deprecate :mymethod
+?>   end
+#=> :mymethod
+
+>> MyClass.new.mymethod
+#=> nil
+```
+
+---
+
 # encryption_with_rsa.rb
 
 1. **Generate RSA Key Pair:**
@@ -156,15 +191,15 @@ These snippets showcase RSA key generation, encryption, and decryption using the
 #=> true
 
 >> rsa_private = OpenSSL::PKey::RSA.generate(2048)
-#=> #<OpenSSL::PKey::RSA:0x00000001053da800 oid=rsaEncryption>
+#=> #<OpenSSL::PKey::RSA:0x000000010acf1628 oid=rsaEncryption>
 >> rsa_public = rsa_private.public_key
-#=> #<OpenSSL::PKey::RSA:0x0000000104ff73a0 oid=rsaEncryption>
+#=> #<OpenSSL::PKey::RSA:0x000000010ae58610 oid=rsaEncryption>
 
 >> secret = 'Ruby'
 #=> "Ruby"
 
 >> enc_data = rsa_public.public_encrypt(secret)
-#=> "\x9B~rW\x16,\t\x9E6\x99\xA9\xAAs\xC2\xD1\xE58@-\x103?3\a;A\x14\xACiwy\x...
+#=> "%\x13[\x97\x7FS\xB1l\xF4\x18\xD3\xE8\v\x9C8\x90(C\xB0\xA5\xE7\xEBh\xD7\...
 
 >> rsa_private.private_decrypt(enc_data)
 #=> "Ruby"
@@ -239,7 +274,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001023794e0
+#<Logger:0x000000010b739658
 ...
 
 >> puts "Level INFO"
@@ -249,10 +284,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-24T00:13:44.473163 #6495]  WARN -- : Nothing to do!
+W, [2024-01-24T00:46:33.163230 #8202]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-24T00:13:44.473634 #6495]  INFO -- : Program started
+I, [2024-01-24T00:46:33.163685 #8202]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -270,7 +305,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000107c79720
+#<Logger:0x00000001023e95b0
 ...
 
 >> puts "Level WARN"
@@ -280,7 +315,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-24T00:13:44.884025 #6516]  WARN -- : Nothing to do!
+W, [2024-01-24T00:46:33.645594 #8223]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -409,7 +444,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x00000001042412d8
+#<ERB:0x0000000106950f18
 ...
 >> @val = 'val'
 #=> "val"
