@@ -9,6 +9,7 @@
 <li><a href="#date_monday_of_this_week1rb">date_monday_of_this_week1.rb</a></li>
 <li><a href="#date_monday_of_this_week2rb">date_monday_of_this_week2.rb</a></li>
 <li><a href="#date_monthnamesrb">date_monthnames.rb</a></li>
+<li><a href="#encryption_with_rsarb">encryption_with_rsa.rb</a></li>
 <li><a href="#file_to_arrayrb">file_to_array.rb</a></li>
 <li><a href="#heredocrb">heredoc.rb</a></li>
 <li><a href="#heredoc_with_valuerb">heredoc_with_value.rb</a></li>
@@ -39,9 +40,9 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-23 23:31:27.671674 +0900
+#=> 2024-01-24 00:13:39.922049 +0900
 >> t.strftime("%F")
-#=> "2024-01-23"
+#=> "2024-01-24"
 ```
 
 ---
@@ -88,7 +89,7 @@ This Ruby snippet utilizes the 'date' library to work with dates. It begins by r
 #=> true
 
 >> today = Date.today
-#=> #<Date: 2024-01-23 ((2460333j,0s,0n),+0s,2299161j)>
+#=> #<Date: 2024-01-24 ((2460334j,0s,0n),+0s,2299161j)>
 >> this_monday = today - today.wday + 1
 #=> #<Date: 2024-01-22 ((2460332j,0s,0n),+0s,2299161j)>
 ```
@@ -101,9 +102,9 @@ This Ruby snippet captures the current date and time, then calculates and assign
 
 ```ruby
 >> today = Time.now
-#=> 2024-01-23 23:31:29.281066 +0900
+#=> 2024-01-24 00:13:41.537821 +0900
 >> this_monday = today - (today.wday - 1) * 24 * 60 * 60
-#=> 2024-01-22 23:31:29.281066 +0900
+#=> 2024-01-22 00:13:41.537821 +0900
 ```
 
 ---
@@ -129,6 +130,44 @@ This Ruby snippet captures the current date and time, then calculates and assign
  "October",
  "November",
  "December"]
+```
+
+---
+
+# encryption_with_rsa.rb
+
+1. **Generate RSA Key Pair:**
+   - Import OpenSSL library.
+   - Generate a 2048-bit RSA private key.
+   - Derive the corresponding public key.
+
+2. **Encrypt Data with RSA:**
+   - Use the RSA public key to encrypt the string 'Ruby'.
+   - Produce encrypted data (`enc_data`).
+
+3. **Decrypt Data with RSA:**
+   - Employ the RSA private key to decrypt the previously encrypted data (`enc_data`).
+   - Retrieve the original string ('Ruby').
+
+These snippets showcase RSA key generation, encryption, and decryption using the OpenSSL library in Ruby.
+
+```ruby
+>> require 'openssl'
+#=> true
+
+>> rsa_private = OpenSSL::PKey::RSA.generate(2048)
+#=> #<OpenSSL::PKey::RSA:0x00000001053da800 oid=rsaEncryption>
+>> rsa_public = rsa_private.public_key
+#=> #<OpenSSL::PKey::RSA:0x0000000104ff73a0 oid=rsaEncryption>
+
+>> secret = 'Ruby'
+#=> "Ruby"
+
+>> enc_data = rsa_public.public_encrypt(secret)
+#=> "\x9B~rW\x16,\t\x9E6\x99\xA9\xAAs\xC2\xD1\xE58@-\x103?3\a;A\x14\xACiwy\x...
+
+>> rsa_private.private_decrypt(enc_data)
+#=> "Ruby"
 ```
 
 ---
@@ -200,7 +239,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001043396e0
+#<Logger:0x00000001023794e0
 ...
 
 >> puts "Level INFO"
@@ -210,10 +249,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:31:31.693709 #2912]  WARN -- : Nothing to do!
+W, [2024-01-24T00:13:44.473163 #6495]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-23T23:31:31.694157 #2912]  INFO -- : Program started
+I, [2024-01-24T00:13:44.473634 #6495]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -231,7 +270,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000101f59658
+#<Logger:0x0000000107c79720
 ...
 
 >> puts "Level WARN"
@@ -241,7 +280,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:31:32.104744 #2933]  WARN -- : Nothing to do!
+W, [2024-01-24T00:13:44.884025 #6516]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -370,7 +409,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000103000ec0
+#<ERB:0x00000001042412d8
 ...
 >> @val = 'val'
 #=> "val"
