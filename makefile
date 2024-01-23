@@ -6,7 +6,6 @@ build: check
 	sh app_readme.sh > README.md
 
 pub: check default
-	ln -fnsv index.md README.md
 	git status
 	sleep 5
 	git add .
