@@ -31,13 +31,15 @@
 <li><a href="#write_json_writerb">write_json_write.rb</a></li>
 </ul>
 
+---
+
 # date.rb
 
 The overall purpose of the code is to capture the current date and time and then convert it into a string formatted as "YYYY-MM-DD".
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-23 23:08:30.079104 +0900
+#=> 2024-01-23 23:28:33.364823 +0900
 >> t.strftime("%F")
 #=> "2024-01-23"
 ```
@@ -91,9 +93,9 @@ This Ruby snippet captures the current date and time, then calculates and assign
 
 ```ruby
 >> today = Time.now
-#=> 2024-01-23 23:08:31.868089 +0900
+#=> 2024-01-23 23:28:35.131287 +0900
 >> this_monday = today - (today.wday - 1) * 24 * 60 * 60
-#=> 2024-01-22 23:08:31.868089 +0900
+#=> 2024-01-22 23:28:35.131287 +0900
 ```
 
 # date_monthnames.rb
@@ -178,7 +180,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000107f39938
+#<Logger:0x0000000108e7a820
 ...
 
 >> puts "Level INFO"
@@ -188,10 +190,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:08:34.485774 #21304]  WARN -- : Nothing to do!
+W, [2024-01-23T23:28:38.136036 #1626]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-23T23:08:34.486234 #21304]  INFO -- : Program started
+I, [2024-01-23T23:28:38.139062 #1626]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -207,7 +209,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x0000000104919790
+#<Logger:0x000000010acf97b0
 ...
 
 >> puts "Level WARN"
@@ -217,7 +219,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:08:34.915290 #21325]  WARN -- : Nothing to do!
+W, [2024-01-23T23:28:38.606288 #1647]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -334,7 +336,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x000000010e480e68
+#<ERB:0x0000000108e90eb8
 ...
 >> @val = 'val'
 #=> "val"

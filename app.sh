@@ -14,6 +14,8 @@ do
 done
 echo '</ul>'
 echo
+echo '---'
+echo
 
 ls -1 *.rb | while read line
 do
