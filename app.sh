@@ -7,7 +7,7 @@ echo
 
 ls -1 *.rb | while read line
 do
-  echo "## $(basename ${line})"
+  echo "# $(basename ${line})"
   echo
 
   if [ -f "${line%.*}.md" ]; then
