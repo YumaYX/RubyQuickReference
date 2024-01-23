@@ -37,7 +37,7 @@ The overall purpose of the code is to capture the current date and time and then
 
 ```ruby
 >> t = Time.now
-#=> 2024-01-23 23:05:28.321671 +0900
+#=> 2024-01-23 23:08:30.079104 +0900
 >> t.strftime("%F")
 #=> "2024-01-23"
 ```
@@ -91,9 +91,9 @@ This Ruby snippet captures the current date and time, then calculates and assign
 
 ```ruby
 >> today = Time.now
-#=> 2024-01-23 23:05:29.974328 +0900
+#=> 2024-01-23 23:08:31.868089 +0900
 >> this_monday = today - (today.wday - 1) * 24 * 60 * 60
-#=> 2024-01-22 23:05:29.974328 +0900
+#=> 2024-01-22 23:08:31.868089 +0900
 ```
 
 # date_monthnames.rb
@@ -178,7 +178,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x000000010c279608
+#<Logger:0x0000000107f39938
 ...
 
 >> puts "Level INFO"
@@ -188,10 +188,10 @@ Level INFO
 #=> 1
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:05:32.449823 #18939]  WARN -- : Nothing to do!
+W, [2024-01-23T23:08:34.485774 #21304]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # output
-I, [2024-01-23T23:05:32.450271 #18939]  INFO -- : Program started
+I, [2024-01-23T23:08:34.486234 #21304]  INFO -- : Program started
 #=> true
 >> logger.debug("Created logger") # none
 #=> true
@@ -207,7 +207,7 @@ Ref. <https://docs.ruby-lang.org/ja/latest/library/logger.html>
 
 >> logger = Logger.new(STDOUT)
 #=> 
-#<Logger:0x00000001073e95b0
+#<Logger:0x0000000104919790
 ...
 
 >> puts "Level WARN"
@@ -217,7 +217,7 @@ Level WARN
 #=> 2
 
 >> logger.warn("Nothing to do!") # output
-W, [2024-01-23T23:05:32.869328 #18960]  WARN -- : Nothing to do!
+W, [2024-01-23T23:08:34.915290 #21325]  WARN -- : Nothing to do!
 #=> true
 >> logger.info("Program started") # none
 #=> true
@@ -334,7 +334,7 @@ This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template s
 
 >> erb = ERB.new(File.read('file.html.erb'))
 #=> 
-#<ERB:0x0000000108ad78f8
+#<ERB:0x000000010e480e68
 ...
 >> @val = 'val'
 #=> "val"
