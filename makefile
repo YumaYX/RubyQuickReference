@@ -5,7 +5,7 @@ build: check
 	sh app.sh > index.md
 	sh app_readme.sh > README.md
 
-pub: check default
+pub: check build
 	git status
 	sleep 5
 	git add .
