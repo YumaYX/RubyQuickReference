@@ -5,6 +5,14 @@ cd codes
 echo '# Ruby Quick Reference'
 echo
 
+echo '<ul>'
+ls -1 *.rb | while read line
+do
+  echo "<li><a href=\"#$(basename ${line/\./})\">$(basename ${line})</a></li>"
+done
+echo '</ul>'
+echo
+
 ls -1 *.rb | while read line
 do
   echo "# $(basename ${line})"
