@@ -5,6 +5,8 @@ cd codes
 echo '# Ruby Quick Reference'
 echo
 
+echo '## Contents'
+echo
 echo '<ul>'
 ls -1 *.rb | while read line
 do
