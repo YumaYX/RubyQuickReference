@@ -3,6 +3,7 @@ default:
 
 build: check
 	sh app.sh > index.md
+	sh app_each.sh
 
 buildrm:
 	sh app_readme.sh > README.md

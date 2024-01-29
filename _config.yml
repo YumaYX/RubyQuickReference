@@ -4,6 +4,7 @@ theme: jekyll-theme-minimal
 exclude:
  - README.md
  - app.sh
+ - app_each.sh
  - app_readme.sh
  - codes
  - makefile
