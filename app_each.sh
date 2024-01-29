@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd codes
+rubyversion=$(ruby -v | awk '{print $2}')
 
 ls -1 *.rb | while read line
 do
@@ -22,6 +23,8 @@ $(irb --prompt simple ${line} \
     | sed -e 's/^>> $//g' \
     | grep -v '^Switch to inspect mode.$')
 \`\`\`
+
+<p align="right">Executed with Ruby ${rubyversion}</p>
 
 OUTPUT
 done
