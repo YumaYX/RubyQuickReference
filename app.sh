@@ -11,7 +11,7 @@ echo
 echo '<ul>'
 ls -1 *.rb | while read line
 do
-  echo "<li><a href=\"each/${line%.*}.html)\">$(basename ${line})</a></li>"
+  echo "<li><a href=\"each/${line%.*}.html\">$(basename ${line})</a></li>"
 done
 echo '</ul>'
 echo
