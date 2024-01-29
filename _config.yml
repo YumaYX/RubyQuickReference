@@ -3,7 +3,7 @@ description: A concise guide summarizing the fundamental features of Ruby in an 
 theme: jekyll-theme-minimal
 exclude:
  - README.md
- - _config.yml
  - app.sh
+ - app_readme.sh
  - codes
  - makefile

@@ -3,9 +3,11 @@ default:
 
 build: check
 	sh app.sh > index.md
+
+buildrm:
 	sh app_readme.sh > README.md
 
-pub: check build
+pub: check clean buildrm
 	git status
 	sleep 5
 	git add .
@@ -14,3 +16,7 @@ pub: check build
 
 check:
 	cd codes && ls -1 *.rb | xargs -n1 ruby > /dev/null
+
+clean:
+	rm -rf each
+	rm -f index.md

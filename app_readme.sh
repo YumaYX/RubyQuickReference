@@ -9,5 +9,5 @@ echo '## Contents'
 echo
 ls -1 *.rb | while read line
 do
-  echo "- [$(basename ${line})](https://yumayx.github.io/RubyQuickReference/#$(basename ${line/\./}))"
+  echo "- [$(basename ${line})](https://yumayx.github.io/RubyQuickReference/each/$(basename ${line%.*}.html))"
 done
