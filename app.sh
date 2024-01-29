@@ -5,6 +5,13 @@ cd codes
 echo '# Ruby Quick Reference'
 echo
 
+echo '### Executed with:'
+echo '```'
+echo $(ruby -v)
+echo '```'
+echo
+
+
 echo '## Contents'
 echo
 echo '<ul>'
