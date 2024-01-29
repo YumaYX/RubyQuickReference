@@ -2,13 +2,10 @@ default:
 	cat makefile
 
 build: check
-	sh app.sh > index.md
+	sh app.sh > index.markdown
 	sh app_each.sh
 
-buildrm:
-	sh app_readme.sh > README.md
-
-pub: check clean buildrm
+pub: check clean
 	git status
 	sleep 5
 	git add .
@@ -16,8 +13,7 @@ pub: check clean buildrm
 	git push
 
 check:
-	cd codes && ls -1 *.rb | xargs -n1 ruby > /dev/null
+	cd codes && ls -1 *.rb | xargs -n1 ruby > /dev/null 2>&1
 
 clean:
-	rm -rf each
-	rm -f index.md
+	rm -f ./*.markdown

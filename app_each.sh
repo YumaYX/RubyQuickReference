@@ -1,11 +1,10 @@
 #!/bin/sh
 
-mkdir each
 cd codes
 
 ls -1 *.rb | while read line
 do
-  page="./../each/${line%.*}.md"
+  page="./../${line%.*}.markdown"
 
   echo "# $(basename ${line})" > ${page}
   echo >> ${page}
