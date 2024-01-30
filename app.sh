@@ -5,13 +5,6 @@ cd codes
 echo '# Ruby Quick Reference'
 echo
 
-echo '### Executed with:'
-echo '```'
-echo $(ruby -v)
-echo '```'
-echo
-
-
 echo '## Contents'
 echo
 echo '<ul>'
@@ -20,3 +13,12 @@ do
   echo "<li><a href=\"${line%.*}.html\">$(basename ${line})</a></li>"
 done
 echo '</ul>'
+echo
+
+echo '### Executed with:'
+echo
+echo '```'
+echo $(ruby -v)
+echo '```'
+echo
+
