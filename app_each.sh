@@ -24,8 +24,6 @@ $(irb --prompt simple ${line} \
     | grep -v '^Switch to inspect mode.$')
 \`\`\`
 
----
-
 Executed with Ruby \`${rubyversion}\`
 
 OUTPUT
