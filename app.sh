@@ -15,10 +15,5 @@ done
 echo '</ul>'
 echo
 
-echo '### Executed with:'
-echo
-echo '```'
-echo $(ruby -v)
-echo '```'
-echo
+echo "Executed with $(ruby -v)"
 
