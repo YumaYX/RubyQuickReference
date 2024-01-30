@@ -13,9 +13,3 @@ do
   echo "<li><a href=\"${line%.*}.html\">$(basename ${line})</a></li>"
 done
 echo '</ul>'
-echo
-
-echo '---'
-echo
-echo "\`$(ruby -v)\`"
-
