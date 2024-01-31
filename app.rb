@@ -22,4 +22,4 @@ heads.each do |element|
   puts_plus '</ul>'
 end
 
-puts "Executed with `Ruby #{RUBY_VERSION}`"
+puts "Executed with Ruby `#{RUBY_VERSION}`"
