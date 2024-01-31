@@ -3,7 +3,7 @@ description: Quick reference for efficient coding
 theme: jekyll-theme-minimal
 exclude:
  - README.md
- - app.sh
+ - app.rb
  - app_each.sh
  - codes
  - makefile

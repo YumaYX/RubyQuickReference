@@ -2,7 +2,7 @@ default:
 	cat makefile
 
 build: check
-	sh app.sh > index.markdown
+	ruby app.rb > index.markdown
 	sh app_each.sh
 
 pub: check clean
