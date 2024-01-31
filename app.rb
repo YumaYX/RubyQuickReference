@@ -21,3 +21,5 @@ heads.each do |element|
   end
   puts_plus '</ul>'
 end
+
+puts "Executed with `Ruby #{RUBY_VERSION}`"
