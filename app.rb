@@ -17,7 +17,7 @@ heads.each do |element|
   puts_plus "### #{element.capitalize}"
   puts_plus '<ul>'
   Dir.glob("#{element}*.rb").each do |file|
-    puts "<li><a href=\"#{file.gsub(/\.rb$/, '')}.html\">#{File.basename(file)}</a></li>"
+    puts "<li><a href=\"#{file.gsub(/\.rb$/, '')}.html\">#{file}</a></li>"
   end
   puts_plus '</ul>'
 end
