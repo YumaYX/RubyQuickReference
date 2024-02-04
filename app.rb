@@ -11,6 +11,8 @@ rb_scripts_names = Dir.glob('*.rb').map { |element| element.gsub(%r{codes/}, '')
 heads = rb_scripts_names.map { |element| element.split('_').first }.uniq.sort
 
 puts_plus '# Ruby Quick Reference'
+puts_plus '## Official Reference Manual'
+puts_plus '[Link](https://docs.ruby-lang.org/ja/latest/doc/index.html)'
 puts_plus '## Contents'
 
 heads.each do |element|
