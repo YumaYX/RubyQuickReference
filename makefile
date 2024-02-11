@@ -13,7 +13,7 @@ pub: check clean
 	git push
 
 check:
-	cd codes && ls -1 *.rb | xargs -n1 ruby > /dev/null 2>&1
+	cd codes && ls -1 *.rb | xargs -n1 ruby -c > /dev/null 2>&1
 
 clean:
 	rm -f ./*.markdown
