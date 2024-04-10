@@ -1,5 +1,5 @@
 default:
-	cat makefile
+	@cat makefile | grep ^[a-z]
 
 build: check
 	ruby app.rb > index.markdown
