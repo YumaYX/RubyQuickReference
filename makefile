@@ -1,7 +1,7 @@
 default:
 	@cat makefile | grep ^[a-z]
 
-build: check
+build: clean check
 	ruby app.rb > index.markdown
 	sh app_each.sh
 

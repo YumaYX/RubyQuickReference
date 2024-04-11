@@ -20,7 +20,10 @@ do
 $(irb --prompt simple ${line} \
     | sed -e '$d' \
     | sed -e 's/^=> /#=> /g' \
+    | sed -e 's/^\?>   //g' \
     | sed -e 's/^>> $//g' \
+    | sed -e 's/^.> //g' \
+    | sed -e 's/^\.\.\.//g' \
     | grep -v '^Switch to inspect mode.$')
 \`\`\`
 
