@@ -1,1 +1,0 @@
-This Ruby code uses the CSV library to read data from a CSV file. It reads the file with headers, iterates through each row, and prints each header-value pair for every row in a human-readable format.
