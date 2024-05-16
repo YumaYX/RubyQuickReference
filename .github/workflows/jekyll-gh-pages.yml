@@ -33,7 +33,7 @@ jobs:
       - name: Build Pages (markdown + ruby script)
         run: make build
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v2
+        uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
