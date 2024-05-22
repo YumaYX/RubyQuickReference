@@ -1,5 +1,3 @@
-Certainly! Your code snippet utilizes the Ruby library `roo` to interact with Excel files. Here's a breakdown of each part:
-
 1. **Require 'roo':**
    - This line imports the `roo` library into your Ruby script. `roo` is a versatile library for reading from and writing to spreadsheet files like Excel.
 
