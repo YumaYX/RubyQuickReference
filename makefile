@@ -2,6 +2,7 @@ default:
 	@cat makefile | grep ^[a-z]
 
 build: clean check
+	bundle install
 	ruby app.rb > index.markdown
 	sh app_each.sh
 
