@@ -1,6 +1,6 @@
 title: Ruby Quick Reference
 description: Quick reference for efficient coding 
-theme: jekyll-theme-tactile
+theme: jekyll-theme-modernist
 exclude:
  - README.md
  - app.rb
