@@ -29,9 +29,6 @@ $(irb --prompt simple ${line} \
 \`\`\`
 
 Executed with Ruby \`${rubyversion}\`
-
-\`\`\`sh
-irb --prompt simple ${line}
-\`\`\`
+\`irb --prompt simple ${line}\`
 OUTPUT
 done
