@@ -24,6 +24,7 @@ $(irb --prompt simple ${line} \
     | sed -e 's/^>> $//g' \
     | sed -e 's/^.> //g' \
     | sed -e 's/^\.\.\.//g' \
+    | sed -e 's/  end$/end/g' \
     | grep -v '^Switch to inspect mode.$')
 \`\`\`
 
