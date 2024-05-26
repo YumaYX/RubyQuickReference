@@ -30,8 +30,8 @@ $(irb --prompt simple ${line} \
 
 Executed with Ruby \`${rubyversion}\`
 
-```sh
+\`\`\`sh
 irb --prompt simple ${line}
-```
+\`\`\`
 OUTPUT
 done
