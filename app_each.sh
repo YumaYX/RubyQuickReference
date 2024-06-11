@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd codes
+cd _codes
 rubyversion=$(ruby -v | awk '{print $2}')
 
 ls -1 *.rb | while read line

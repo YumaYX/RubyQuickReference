@@ -6,8 +6,8 @@ def puts_plus(str)
   puts
 end
 
-Dir.chdir('codes')
-rb_scripts_names = Dir.glob('*.rb').map { |element| element.gsub(%r{codes/}, '') }
+Dir.chdir('_codes')
+rb_scripts_names = Dir.glob('*.rb').map { |element| element.gsub(%r{_codes/}, '') }
 heads = rb_scripts_names.map { |element| element.split('_').first }.uniq.sort
 
 puts_plus '# Ruby Quick Reference'
