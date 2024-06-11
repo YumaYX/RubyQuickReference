@@ -3,11 +3,10 @@ description: Quick reference for efficient coding
 #theme: jekyll-theme-minimal
 theme: minima
 exclude:
- - README.md
- - app.rb
- - app_each.sh
- - _codes/
- - makefile
- - Gemfile
- - Gemfile.lock
- - README.md
+  - README.md
+  - app.rb
+  - app_each.sh
+  - _codes/
+  - makefile
+  - Gemfile
+  - Gemfile.lock
