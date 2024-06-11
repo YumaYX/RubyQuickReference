@@ -1,11 +1,12 @@
 title: Ruby Quick Reference
 description: Quick reference for efficient coding 
-#theme: jekyll-theme-minimal
-theme: minima
+theme: jekyll-theme-minimal
 exclude:
  - README.md
  - app.rb
  - app_each.sh
  - codes
  - makefile
- - *.rb
+ - Gemfile
+ - Gemfile.lock
+ - README.md
