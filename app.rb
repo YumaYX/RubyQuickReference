@@ -10,7 +10,7 @@ Dir.chdir('_codes')
 rb_scripts_names = Dir.glob('*.rb').map { |element| element.gsub(%r{_codes/}, '') }
 heads = rb_scripts_names.map { |element| element.split('_').first }.uniq.sort
 
-puts_plus '# Contents'
+puts_plus '# Ruby Quick Reference'
 puts_plus '## Official Reference Manual'
 puts_plus '- [Link](https://docs.ruby-lang.org/ja/latest/doc/index.html)'
 
