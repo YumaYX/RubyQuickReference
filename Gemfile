@@ -4,4 +4,4 @@ source "https://rubygems.org"
 
 gem "roo"
 
-gem "ys1", git: "https://github.com/YumaYX/YS1"
+gem "ys1", git: "git@github.com:YumaYX/YS1.git"
