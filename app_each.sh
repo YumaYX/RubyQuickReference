@@ -13,7 +13,7 @@ do
     page="./../../"${dir_n}"_${line%.*}.markdown"
     echo ${page}
     
-    echo "# $(basename ${line})(dir_n)" > ${page}
+    echo "# $(basename ${line})(${dir_n})" > ${page}
     echo >> ${page}
     
     if [ -f "${line%.*}.md" ]; then
