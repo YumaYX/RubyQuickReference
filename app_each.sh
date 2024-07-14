@@ -3,19 +3,23 @@
 cd _codes
 rubyversion=$(ruby -v | awk '{print $2}')
 
-ls -1 *.rb | while read line
+ls -d * | while read dir_n
 do
-  page="./../${line%.*}.markdown"
-
-  echo "# $(basename ${line})" > ${page}
-  echo >> ${page}
-
-  if [ -f "${line%.*}.md" ]; then
-    cat ${line%.*}.md >> ${page}
+  cd "${dir_n}"
+  
+  ls -1 *.rb | while read line
+  do    
+    page="./../../"${dir_n}"_${line%.*}.markdown"
+    
+    echo "# $(basename ${line})" > ${page}
     echo >> ${page}
-  fi
-
-  cat <<OUTPUT >> ${page}
+    
+    if [ -f "${line%.*}.md" ]; then
+      cat ${line%.*}.md >> ${page}
+      echo >> ${page}
+    fi
+    
+    cat <<OUTPUT >> ${page}
 \`\`\`ruby
 $(irb --prompt simple ${line} \
     | sed -e '$d' \
@@ -25,9 +29,12 @@ $(irb --prompt simple ${line} \
     | sed -e 's/^.> //g' \
     | sed -e 's/^\.\.\.//g' \
     | sed -e 's/  end$/end/g' \
-    | grep -v '^Switch to inspect mode.$')
+    | grep -v '^Switch to inspect mode.$' || exit 2)
 \`\`\`
 
 Executed with Ruby \`${rubyversion}\`
 OUTPUT
+  done
+
+  cd ..
 done
