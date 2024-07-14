@@ -4,4 +4,7 @@ source "https://rubygems.org"
 
 gem "roo"
 
-gem "ys1", github: "/YumaYX/YS1"
+git "https://github.com/YumaYX/YS1" do
+  gem "ys1"
+end
+  
