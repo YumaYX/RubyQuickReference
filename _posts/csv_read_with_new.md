@@ -1,1 +1,0 @@
-This Ruby code reads a CSV file named "file.csv" and prints each row as an array of header-value pairs. It utilizes the CSV library to handle the parsing of the CSV file and iterates through each row, printing the header and corresponding value for each column in that row.

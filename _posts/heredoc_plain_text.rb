@@ -1,3 +1,0 @@
-doc = <<~'EOL'
-  string
-EOL

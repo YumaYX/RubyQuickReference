@@ -1,1 +1,0 @@
-This Ruby snippet utilizes the 'date' library to work with dates. It begins by requiring the library. Then, it obtains the current date and calculates the date for the beginning of the current week (Monday) by subtracting the current day's index from the current date and adding 1. The result is stored in the variable `this_monday`.

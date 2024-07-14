@@ -1,1 +1,0 @@
-This Ruby snippet captures the current date and time, then calculates and assigns the date of the most recent Monday by subtracting the number of seconds corresponding to the days elapsed since the beginning of the week.

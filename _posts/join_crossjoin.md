@@ -1,1 +1,0 @@
-The product method is then called on the a, b, and c arrays. This method returns an array of all possible combinations of the elements in the input arrays. In this case, the resulting array will contain 3 elements, each with a combination of the elements in the a, b, and c arrays.

@@ -1,1 +1,0 @@
-This Ruby code uses the ERB (Embedded RuBy) library to process an ERB template stored in a file named 'file.html.erb.' It creates an ERB object, reads the template file, and sets a variable '@val' to the value 'val.' Finally, it evaluates the ERB template with the current binding, and the result is returned.

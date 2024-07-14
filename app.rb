@@ -22,7 +22,7 @@ dirs_name.sort.each do |dir_name|
   rb_scripts_names = Dir.glob('*.rb')
 
   rb_scripts_names.each do |file|
-    puts "<li><a href=\"#{file.gsub(/\.rb$/, '')}.html\">#{file}</a></li>"
+    puts "<li><a href=\"#{dir_name}_#{file.gsub(/\.rb$/, '')}.html\">#{file}</a></li>"
   end
 
   puts_plus '</ul>'
