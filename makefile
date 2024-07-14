@@ -23,3 +23,4 @@ check:
 
 clean:
 	rm -f ./*.markdown
+	rm -rf ./YS1

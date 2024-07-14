@@ -6,6 +6,7 @@ exclude:
   - app.rb
   - app_each.sh
   - _codes/
+  - YS1/
   - makefile
   - Gemfile
   - Gemfile.lock
