@@ -5,7 +5,8 @@ build: clean check
 	git clone https://github.com/YumaYX/YS1.git
 	cd YS1
 	bundle install
-	rake install:local
+	gem build ys1.gemspec
+	gem install ys1*.gem --local
 	cd -
 
 	bundle install
