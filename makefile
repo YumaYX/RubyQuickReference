@@ -3,11 +3,9 @@ default:
 
 build: clean check
 	git clone https://github.com/YumaYX/YS1.git
-	cd YS1
-	bundle install
-	gem build ys1.gemspec
-	gem install ys1*.gem --local
-	cd -
+	cd YS1 && bundle install
+	cd YS1 && gem build ys1.gemspec
+	cd YS1 && gem install ys1*.gem --local
 
 	bundle install
 	ruby app.rb > index.markdown
