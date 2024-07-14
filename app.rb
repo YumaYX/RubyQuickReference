@@ -6,21 +6,25 @@ def puts_plus(str)
   puts
 end
 
-Dir.chdir('_codes')
-rb_scripts_names = Dir.glob('*.rb').map { |element| element.gsub(%r{_codes/}, '') }
-heads = rb_scripts_names.map { |element| element.split('_').first }.uniq.sort
 
 puts_plus '# Ruby Quick Reference'
 puts_plus '## Official Reference Manual'
 puts_plus '- [Link](https://docs.ruby-lang.org/ja/latest/doc/index.html)'
 
-heads.each do |element|
-  puts_plus "### #{element.capitalize}"
+Dir.chdir('_codes')
+dirs_name = Dir.glob('*').map { |element| element.gsub(%r{_codes/}, '') }
+
+dirs_name.sort.each do |dir_name|
+  puts_plus "### #{dir_name.capitalize}"
   puts_plus '<ul>'
-  Dir.glob("#{element}*.rb").each do |file|
+
+  Dir.chdir(dir_name)
+  rb_scripts_names = Dir.glob('*.rb')
+
+  rb_scripts_names.each do |file|
     puts "<li><a href=\"#{file.gsub(/\.rb$/, '')}.html\">#{file}</a></li>"
   end
-  puts_plus '</ul>'
-end
 
-puts "Executed with Ruby `#{RUBY_VERSION}`"
+  puts_plus '</ul>'
+  Dir.chdir("..")
+end
