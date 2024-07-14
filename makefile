@@ -2,6 +2,12 @@ default:
 	@cat makefile | grep ^[a-z]
 
 build: clean check
+	git clone https://github.com/YumaYX/YS1.git
+	cd YS1
+	bundle install
+	rake install:local
+	cd -
+
 	bundle install
 	ruby app.rb > index.markdown
 	sh app_each.sh
