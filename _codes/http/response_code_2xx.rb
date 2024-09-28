@@ -11,4 +11,4 @@ def rc2xx?(uri)
     response_code >= 200 && response_code < 300
 end
 
-rc2xx("https://yumayx.github.io/")
+rc2xx?("https://yumayx.github.io/")
