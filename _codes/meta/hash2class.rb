@@ -1,12 +1,21 @@
 data = { name: "Alice", age: 25, city: "Tokyo" }
 
-obj = Class.new do
-  def initialize(hash)
-    hash.each do |key, value|
-      instance_variable_set("@#{key}", value)
+def create_dynamic_class(hash)
+  Class.new do
+    hash.each_key do |key|
+      attr_accessor key.to_sym
+    end
+
+    define_method(:initialize) do
+      hash.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
     end
   end
-end.new(data)
+end
+
+kls = create_dynamic_class data
+obj = kls.new
 
 obj
 obj.name
