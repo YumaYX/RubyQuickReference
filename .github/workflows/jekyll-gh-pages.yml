@@ -30,7 +30,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: '3'
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build Pages (markdown + ruby script)
